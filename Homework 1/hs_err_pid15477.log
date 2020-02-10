@@ -1,0 +1,26 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x0000000116c1571f, pid=15477, tid=128779
+#
+# JRE version: OpenJDK Runtime Environment (Zulu11.35+13-CA) (11.0.5+10) (build 11.0.5+10-LTS)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.5+10-LTS, mixed mode, tiered, compressed oops, g1 gc, bsd-amd64)
+# Problematic frame:
+# C  [libjimage.dylib+0x171f]  _ZN12ImageStrings4findEP6EndianPKcPij+0x57
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://www.azulsystems.com/support/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xmx2048M -Xss2M -XX:ErrorFile=/dev/null 
+
+Host: MacBookPro13,3 x86_64 2700 MHz, 8 cores, 16G, Darwin 19.2.0
+Time: Wed Jan 22 20:36:50 2020 PST elapsed time: 1 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007ff46c0d8800):  JavaThread "Thread-0" [_thread_in_vm, id=128779

@@ -1,0 +1,1462 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:17:25
+
+. 
+. /*------------------------------------------------
+>   by Jean Roth Thu Oct 12 15:43:03 EDT 2017
+>   Please report errors to jroth@nber.org
+>   NOTE:  This program is distributed under the GNU GPL. 
+>   See end of this file and http://www.gnu.org/licenses/ for details.
+>   Run with do cpsmar2017
+> ----------------------------------------------- */
+. 
+. /* The following line should contain
+>    the complete path and name of the raw data file.
+>    On a PC, use backslashes in paths as in C:\  */   
+. 
+. local dat_name "/Users/jacob/Downloads/cpsmar2017.dat"
+
+. 
+. /* The following line should contain the path to your output '.dta' file */
+. 
+. local dta_name "/Users/jacob/Downloads/cpsmar2017.dta"
+
+. 
+. /* The following line should contain the path to the data dictionary file */
+. 
+. local dct_name "/Users/jacob/Downloads/cpsmar2017.dct"
+
+. 
+. quietly infile using "`dct_name'", using("`dat_name'") clear
+file /Users/jacob/Downloads/cpsmar2017.dct not found
+r(601);
+
+end of do-file
+
+r(601);
+
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:26:19
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:26:20
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:26:25
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:26:25
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:26:30
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:26:31
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:26:37
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:26:37
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:26:43
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:26:43
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:26:49
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:26:49
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:26:55
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:26:55
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:00
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:01
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:07
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:08
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:13
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:13
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:19
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:19
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:25
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:25
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:30
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:31
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:37
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:37
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:42
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:43
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:48
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:49
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:27:54
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:27:55
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
+. cap log close stata_kernel_log
+log using `"/Users/jacob/.stata_kernel_cache/log0.log"', replace text name(stata_kernel_log)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  stata_kernel_log
+       log:  /Users/jacob/.stata_kernel_cache/log0.log
+  log type:  text
+ opened on:  19 Jan 2020, 15:28:01
+adopath + `"/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"'
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/jacob/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/jacob/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "/Users/jacob/miniconda3/lib/python3.6/site-packages/stata_kernel/ado"
+
+. cd `"/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154"'
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154
+
+. set more on
+
+. set pagesize 100
+
+. set linesize 255
+
+. clear all
+
+. global stata_kernel_graph_counter = 0
+
+. 
+. di "$S_DATE, $S_TIME"
+19 Jan 2020, 15:28:01
+
+. di "Stata version: `c(version)'"
+Stata version: 16
+
+. di "OS: $S_OS"
+OS: MacOSX
+
+. `finished_init_cmd'
+. di "`c(stata_version)'"
+16
+
+. `done'
+. _StataKernelCompletions
+%mata%
+
+      # bytes   type                        name and extent
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+%varlist%
+
+%globals%
+stata_kernel_graph_counter S_ADO S_level F1 F2 F7 F8 S_FLAVOR S_OS S_OSDTL S_MACH
+%logfiles%
+/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/4th Year/SS154/cpsmar2017.log
+%scalars%
+
+%programs%
+  ado      792  _StataKernelCompletions
+  ado      242  clear.clearreturn
+  ado      603  clear._clear_9
+  ado     1770  clear
+      --------
+          3407
+
+%matrices%
+
+
+. `bcc4869c9c119320f7af8a3981776720'
+. mata : invtokens(st_dir("local", "macro", "*")')
+  
+
+. `08a286cef0dc100f5df674f2b5353f29'
+. include /Users/jacob/.stata_kernel_cache/include.do
+
+. cap di "Set _rc to 0 initially"
+
+. . `84d89c91cc0aa7dd2bfc40d61af9e55b'
