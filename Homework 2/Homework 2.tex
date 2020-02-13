@@ -25,44 +25,35 @@
 \maketitle
 
 
-\section{Learning about Heterogeneity in Returns to Schooling}
+\section{Heterogeneity in Returns to Schooling}
 
-Koop and Tobias \cite{koop2004learning} studied schooling in the German education system in order to .... (provide summary)
-
-\subsection{A Regression of log wages on individual characteristics}
-
-\subsection{A Regression of log wages on individual + household characteristics}
+Koop and Tobias \cite{koop2004learning} studied schooling in the German education system in order to .... (provide summary)\\
 
 
-\subsection{A manual calculation of $R^2$}
+Let $X_1$ be a vector of education, experience, and ability (the individual's own characteristics). Let $X_2$ contain the mother's education, the father's education, and the number of siblings (the household characteristics). Let $y$ be the log wage.
 
+\begin{enumerate}[label=\alph*.]
+\item Compute the least squares regression coefficients in the regression of $y$ on $X_1$. Report and interpret the coefficients.
+\item Compute the least squares regression coefficients in the regression of $y$  on $X_1$ and $X_2$. Report and interpret the coefficients.
+\item Compute the $R^2$ for the the regression of $y$ on $X_1$ and $X_2$ manually using the $SSE$ and $SST$ from the output. Repeat the computation for the case in which the constant term is omitted. You need use the \textit{noconstant} option, which suppresses the constant in a regression model. What happens to $R^2$?
+\item Compute the adjusted $R^2$ for the full regression with and without the constant term. Interpret your results. Do we need the constant term? (Hint: Make sure to refer to the economic theory to discuss whether one should have the constant term regardless of statistical significance)
+\item Are any of the classical assumptions violated in part a or part b? Refer to the assumptions MR1, MR2, MR5, and MR6.
+\end{enumerate}
 
-\subsection{The importance of the Constant term}
-
-\subsection{Violation of Classical Assumptions}
-
-MR1, MR2, MR5, M6
-
+\newgeometry{left=2cm, right=2cm}
 \section{The U.S. Gasoline Market}
 
-\subsection{A multiple regression of per capita consumption}
+\begin{enumerate}[label=\alph*.]
+\item Compute the multiple regression of per capita consumption of gasoline on per capita income, the price of gasoline, all the other prices and a time trend. Report all results. Do the signs of the estimates agree with your expectations?
+\item Test the hypothesis that at least in regard to demand for gasoline, consumers do not differentiate between changes in the prices of new and used cars.
+\item Estimate the own price elasticity of demand, the income elasticity, and the cross-price elasticity with respect to changes in the price of public transportation. Do the computations at the 2004 point in the data, which means that the covariates should take the values corresponding to 2004 (i.e., use the "if" command instead of "at").
+\item Reestimate the regression in logarithms so that the coefficients are direct estimates of the elasticities. (Do not use the log of the time trend). How do your estimates compare with the results in the previous question? Which specification do you prefer?
+\item Compute the simple correlations of the price variables. Would you conclude that multicollinearity is a ``problem'' for the regression in part a or part d?
+\item Notice that the price index for gasoline is normalized to 100 in 2000, whereas the other price indices are anchored at 1983 (roughly). If you were to renormalize the indices so that they were all 100.00 in 2004, then how would the results of the regression in part a change? How would the results of the regression in part d change?
+\end{enumerate}
 
 
-\subsection{Do consumers differentiate between changes in prices of new/used cars?}
-
-\subsection{Estimation of Elasticity}
-\subsubsection{Price Elasticity}
-\subsubsection{Income Elasticity}
-\subsubsection{Cross-price Elasticity}
-
-\subsection{Using logarithms for regression}
-
-\subsection{Computing correlations of price variables}
-
-\subsection{Renormalization of Indices}
-
-
-
+Word Count (excluding questions, tables, charts, graphs and appendix): 
 
 \section{Appendix}
 
