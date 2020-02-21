@@ -24,39 +24,36 @@
 %\date{}
 \maketitle
 
-
 \section{Heterogeneity in Returns to Schooling}
 
 
 Using the \href{http://people.stern.nyu.edu/wgreene/Econometrics/PanelDataSets.htm}{link}, download the data used in Koop and Tobias's \cite{koop2004learning} study of the relationship between wages and education, ability, and family characteristics. Their data set is a panel of 2,178 individuals with a total of 17,919 observations. Extract the first observations for the first 15 individuals in the sample.\\
 
+\hyperlink{first15}{A table for the first 15 individuals in the sample is given in the Appendix. It is also possible to click on links to be taken directly to the corresponding graphic/table in the Appendix.}\\
 
 Let $X_1$ be a vector of education, experience, and ability (the individual's own characteristics). Let $X_2$ contain the mother's education, the father's education, and the number of siblings (the household characteristics). Let $y$ be the log wage.
 
 \begin{enumerate}[label=\alph*.]
 \item \textbf{Compute the least squares regression coefficients in the regression of $y$ on $X_1$. Report and interpret the coefficients.}
-\item 
-The full \hyperref[sec:table1]{regression table} is available in the Appendix. The coefficients for \textit{educ}, \textit{potexp} and \textit{ability} were all significant, and are estimated to be $\beta_{educ} = 0.0737621, \beta_{potexp}=0 .0394896$, and $\beta_{ability}= 0.0828907 $ respectively. \\
 
-Given the log-linear form of the model, the coefficients can be interpreted as relative increases in the dependent variable given a unit increase in the independent variable: A 1 unit increase in education (in years), potential experience (parameterized as age - education - 5), or cognitive ability (proxied by a standardized ASVAB test score), would be expected to increase wages by 7.37\% , 3.95\% and 8.29\% respectively, keeping all else equal.
+\hyperlink{yonx1}{The full regression table is available here}. The coefficients for \textit{educ}, \textit{potexp} and \textit{ability} were all significant, and are estimated to be $\beta_{educ} = 0.0737621, \beta_{potexp}=0 .0394896$, and $\beta_{ability}= 0.0828907 $ respectively. \\
+
+Given the log-log form of the model, the coefficients can be interpreted as relative increases in the dependent variable given a unit increase in the independent variable: A 1 unit increase in education (in years), potential experience (parameterized as age - education - 5), or cognitive ability (proxied by a standardized ASVAB test score), would be expected to increase wages by 7.37\% , 3.95\% and 8.29\% respectively, keeping all else equal.
 
 \item \textbf{Compute the least squares regression coefficients in the regression of $y$  on $X_1$ and $X_2$. Report and interpret the coefficients.}
 
-The full regression table is available in the \hyperref[sec:table2]{Appendix}. All coefficients except for $\beta_{mothered}$ were found to be significant at the $\alpha = 0.05$ level, at $\beta_{educ} = .0722035, \beta_{potexp} = .0395093, \beta_{ability} = 0.0774678, \beta_{fathered} = 0.0054569$ and $\beta_{siblings} = 0.0047656 $ respectively. The coefficient estimate $\beta_{mothered} = -0.000117 $ was not found to be statistically significant from 0. \\
+\hyperlink{yonx1x2}{The full regression table is available here.} All coefficients except for $\beta_{mothered}$ were found to be significant at the $\alpha = 0.05$ level, at $\beta_{educ} = .0722035, \beta_{potexp} = .0395093, \beta_{ability} = 0.0774678, \beta_{fathered} = 0.0054569$ and $\beta_{siblings} = 0.0047656 $ respectively. The coefficient estimate $\beta_{mothered} = -0.000117 $ was not found to be statistically significant from 0. \\
 
 As above, a 1 unit increase in education, potential experience, cognitive ability, father's education (in years), and number of siblings, were expected to increase wages by 7.22\%, 3.95\%, 7.75\%, 0.55\%, and 0.48\% respectively. Thus a fraction of the explanatory power of \textit{educ} and \textit{ability} were given to \textit{fathered} and \textit{siblings}, but it is unclear if this small statistical significance would translate into practical significance for decision-making.
 
 \newpage
 \item \textbf{Compute the $R^2$ for the the regression of $y$ on $X_1$ and $X_2$ manually using the SSE and SST from the output. Repeat the computation for the case in which the constant term is omitted. You need use the \textit{noconstant} option, which suppresses the constant in a regression model. What happens to $R^2$?}
 
-From the Stata output, we obtain $\text{SSE} = 4126.17535$ and $ \text{SST} = 4999.72601$. The $R^2$ formula gives
+The Stata output from the previous table gives $\text{SSE} = 4126.17535, \ \text{SST} = 4999.72601$. The $R^2$ formula is
 $$ R^2 = 1- \frac{\text{SSE}}{\text{SST}} = 1 - \frac{4126.17535}{4999.72601} = 0.17471$$
-In the no-intercept model, $\text{SSE} = 4316.7689 $, while the $\text{SST} = \sum_{i=1}^n (y_i-\bar{y})^2$ remains the same as before.
+\hyperlink{nointercept}{The Stata output for the no-intercept model is given here}, where $\text{SSE} = 4316.7689 $.  However, an incorrect value of $\text{SST} = 99529.3551 $ is given, as a result of SST being implicitly calculated in the Stata backend assuming an intercept exists. The mathematical definition of $\text{SST} = \sum_{i=1}^n (y_i-\bar{y})^2$ means it is constant, and so we can use the previous SST.
 $$ R_0^2 = 1- \frac{\text{4316.76885}}{\text{4999.72601}} =  0.13659$$
 
-
-
-Thus $R^2$ is reduced by excluding the intercept term. A notable discrepancy is the given SST from an automatic, rather than manual, calculation in Stata. An incorrect value of $\text{SST} = 99529.3551 $ is given, as a result of SST being implicitly calculated assuming an intercept exists.
 
 
 \item \textbf{Compute the adjusted $R^2$ for the full regression with and without the constant term. Interpret your results. Do we need the constant term? (Hint: Make sure to refer to the economic theory to discuss whether one should have the constant term regardless of statistical significance)}
@@ -67,11 +64,23 @@ $$ \bar{R}^2 = 1 - (1-R^2) \frac{n-1}{n-p-1} = 1-(1-0.17471)\frac{17919}{17919-6
 And similarly in the no-intercept model, we have
 $$ \bar{R}_0^2 = 1-(1-0.13659)\frac{17919}{17919-6-1} = 0.13625 $$
 
-In this particular case, the intercept term is statistically significant in the full regression, and helps to explain more of the variance in the dependent variable. More generally, the intercept term helps in reducing some of the restrictions in the model. By including the intercept term, the mean of the least squares residual is always zero. This is assumption MR2 of the multiple regression model, and without the intercept term, MR2 is not guaranteed.
-
+In this particular case, the intercept term is statistically significant in the full regression, and helps to explain more of the variance in the dependent variable. More generally, the intercept term helps in reducing some of the restrictions in the model. By including the intercept term, the mean of the least squares residual is always zero. This is assumption MR2 of the multiple regression model, and without the intercept term, MR2 is not guaranteed.\footnote{\#econometrictheory}
+\newpage
 \item \textbf{Are any of the classical assumptions violated in part a or part b? Refer to the assumptions MR1, MR2, MR5, and MR6.} 
+\begin{itemize}
+	\item MR1 states that the model linearly depends on the values of the explanatory variables, and the unknown parameters. This is a matter of model specification, and a log-linear model, such as the one in this problem, conforms to this assumption. 
+	\item MR2 states that each random errors has a probability distribution with zero mean. If there is omitted variable bias, or otherwise some significant specification error, this assumption is violated. \hyperlink{ramsay}{ Specifically, omitted variable bias can be detected through the Ramsay RESET test}, which gives $p =0.019<\alpha =0.05$ and $p=0.0056 < \alpha = 0.05$ respectively. Thus there is likely some misspecification and this assumption is violated.
+	\item MR5 states that there is no exact collinearity or multicollinearity among the explanatory variables. \hyperlink{vif}{We can also check the VIF tables, given in the appendix. The mean VIF for the two regressions are 1.3 and 1.54, indicating that there is not a problemtic amount of multicollinearity.}
+	\item MR6 states that the residuals are normally distributed, in other words $e_i  \sim N(0, \sigma^2)$. While a histogram of the residuals would suggests the assumption of normality to be more or less reasonable, we can calculate the Jarque-Bera statistic, taking the values of skewness and kurtosis from Stata's summarize. 
+\begin{align*}
+JB &= \frac{N}{6}\Big(	 S^2 + \frac{(K-3)^2}{4} \Big)		\\
+JB_1 &= \frac{17919}{6}\Big((-0.4579588)^2 + \frac{(4.392981-3)^2}{4} \Big) = 2075.09>5.99\\
+JB_2 &= \frac{17919}{6}\Big((-0.4593643)^2 + \frac{(4.394376-3)^2}{4} \Big) = 2081.85>5.99
+\end{align*}
+With 5.99 being the critical value for the corresponding $\chi_2^2$ distribution, we can conclude at the $5\%$ significance level that the residuals do not show follow a normal distribution. However, to what extent this statistical significance achieves a practical significance is to be determined.
+\end{itemize}
 
-MR1 concerns model specification, and could be violated in the case of omitted variable bias. Running the Ramsay RESET test on model in part a, and then b, gives a $p =0.019<\alpha =0.05$ and $p=0.0056 < \alpha = 0.05$ respectively. Thus there is likely some misspecification. MR2 and MR6 can be checked simultaneously via a residuals plot; and both seem to be normally distributed around 0. MR5 - multicollinearity can be checked via VIF, with a mean VIF of 1.3 and 1.54 respectively, indicating that there is not a problematic amount of multicollinearity. 
+
 
 \end{enumerate}
 
@@ -82,48 +91,55 @@ MR1 concerns model specification, and could be violated in the case of omitted v
 \item \textbf{Compute the multiple regression of per capita consumption of gasoline on per capita income, the price of gasoline, all the other prices and a time trend. Report all results. Do the signs of the estimates agree with your expectations?}
 
 
-The signs of the estimates make sense. A rise in (disposable) income, for example, is unsurprisingly correlated with increased demand and therefore consumption. An increase in prices means a reduction in consumption. A positive sign for the price index of new cars could make sense; newer cars are more fuel efficient, so an increase in their prices incentivizes people to use their used cars, which requires more gasoline consumption. An increase in the price of used cars means people switch to newer, more fuel efficient cars, and thus consume less gasoline. An increase in the price of public transport means people switch to private cars and use more gasoline. I had no expectations on the impact of durables and non-durables. The final coefficient for $p_s$ makes sense: a more expensive services sector means it is more expensive to use gasoline for cars, so the negative sign makes sense. 
+The signs of the estimates make sense. A rise in (disposable) income, for example, is unsurprisingly correlated with increased demand and therefore consumption. An increase in prices means a reduction in consumption. A positive sign for the price index of new cars could make sense; newer cars are more fuel efficient, so an increase in their prices incentivizes people to use their used cars, which requires more gasoline consumption. An increase in the price of used cars means people switch to newer, more fuel efficient cars, and thus consume less gasoline. An increase in the price of public transport means people switch to private cars and use more gasoline. I had no expectations on the impact of durables and non-durables. The final coefficient for $p_s$ makes sense: a more expensive services sector means it is more expensive to use gasoline for cars, so the negative sign makes sense.
 \item \textbf{Test the hypothesis that at least in regard to demand for gasoline, consumers do not differentiate between changes in the prices of new and used cars.}
 
 Here, the null and alternative hypotheses are:
-$$ H_0:\frac{\partial demand}{\partial P_{nc}}=\frac{\partial demand}{\partial P_{uc}}, \quad H_A: \frac{\partial demand}{\partial P_{nc}} \neq \frac{\partial demand}{\partial P_{uc}}$$
+$$ H_0:\frac{\partial demand}{\partial P_{nc}}=\frac{\partial demand}{\partial P_{uc}} \iff \beta_{pnc} - \beta_{puc} =0, \quad H_A: \frac{\partial demand}{\partial P_{nc}} \neq \frac{\partial demand}{\partial P_{uc}} \iff \beta_{pnc} - \beta_{pnc} \neq 0$$
+We obtain the test statistic as follows, and obtain estimates for variances and covariance from Stata:
+\begin{align*}
+t = \frac{\bar{x}-\mu}{SE} =  \frac{\hat{\beta}_{pnc}-  \hat{\beta}_{puc}}{\sqrt{{\text{Var}}(\hat{\beta}_{pnc} - \hat{\beta}_puc)}} & = \frac{\hat{\beta}_{pnc} - \hat{\beta}_{puc}}{\sqrt{ {\text{Var}(\hat{\beta}_{pnc})}  + {\text{Var}(\hat{\beta}_{puc})} + 2 { \text{Cov}(\hat{\beta}_{pnc}, \hat{\beta}_{puc})  }  }    } \sim t_{42}  \\
+& = \frac{(0.0005774) - (-0.0058746)}{\sqrt{.00016497 + .00002372 + 2(0.000009359)}} = 0.448 < t_{42}^{*} = 2.02
+\end{align*}
+	
+Thus we fail  at $5\%$ significance level $(p = 0.656 > 0.05)$ to reject the null hypothesis that there is a difference between the two coefficients. 
 
-\item \textbf{Estimate the own price elasticity of demand, the income elasticity, and the cross-price elasticity with respect to changes in the price of public transportation. Do the computations at the 2004 point in the data, which means that the covariates should take the values corresponding to 2004 (i.e., use the "if" command instead of "at").}\\
+
+
+\item \textbf{Estimate the own price elasticity of demand, the income elasticity, and the cross-price elasticity with respect to changes in the price of public transportation. Do the computations at the 2004 point in the data, which means that the covariates should take the values corresponding to 2004 (i.e., use the "if" command instead of "at").}
 
 The tables for the elasticities are given in the appendix. The estimated proportional elasticities of gasoline consumption  with respect to proportion changes in price, income, and price of public transportation in 2004 can also be computed manually via:
 \begin{align*}
-\text{PED}_{2004} &= \frac{\partial Q}{\partial P}\frac{P_{2004}}{Q_{2004}} = \beta_{\text{GasP}} \Big( \frac{\text{GasP}_{2004}}{\text{Demand}_{2004}} \Big) = (-.0110838)\frac{123.901}{6.164056} = -0.2225 \\
-\text{YED}_{2004} &= \frac{\partial Q}{ \partial I}\frac{I_{2004}}{Q_{2004}} = \beta_{\text{Income}} \Big( \frac{\text{Income}_{2004}} {\text{Demand}_{2004}} \Big)= (0.0002157)\frac{27113}{6.164056} = 0.9488 \\
-\text{XED}_{2004} &= \frac{\partial Q}{ \partial X} \frac{X_{2004}}{Q_{2004}} = \beta_{ppt} \Big( \frac{ppt_{2004}}{\text{Demand}_{2004}} \Big) = (	0.0069073) \frac{209.1}{6.164056} = 0.2343
+\text{PED}_{2004} &= \frac{\partial Q}{\partial P}\frac{P_{2004}}{Q_{2004}} = \beta_{\text{GasP}} \Big( \frac{\text{GasP}_{2004}}{\text{Demand}_{2004}} \Big)   = (-.0110838)\frac{123.901}{6.164056} &&= -0.2225 \\
+\text{YED}_{2004} &= \frac{\partial Q}{ \partial I}\frac{I_{2004}}{Q_{2004}} = \beta_{\text{Income}} \Big( \frac{\text{Income}_{2004}} {\text{Demand}_{2004}} \Big) =(0.0002157)\frac{27113}{6.164056} &&= 0.9488 \\
+\text{XED}_{2004} &= \frac{\partial Q}{ \partial X} \frac{X_{2004}}{Q_{2004}} = \beta_{ppt} \Big( \frac{ppt_{2004}}{\text{Demand}_{2004}} \Big) =  (	0.0069073) \frac{209.1}{6.164056} &&= 0.2343
 \end{align*}
 
 This matches the computer-generated elasticities.
 
 
-\newpage
-\item \textbf{Reestimate the regression in logarithms so that the coefficients are direct estimates of the elasticities. (Do not use the log of the time trend). How do your estimates compare with the results in the previous question? Which specification do you prefer?}\\
+\item \textbf{Reestimate the regression in logarithms so that the coefficients are direct estimates of the elasticities. (Do not use the log of the time trend). How do your estimates compare with the results in the previous question? Which specification do you prefer?}
 
-Elasticities are closely linked with partial derivatives: they are understood to be the partial derivatives multiplied by the corresponding unit factor. When using a log-linear model, the relative change of the dependent variable with respect to a unit change in one of the independent variables (ceteris paribus), is roughly equivalent to the partial deriative, which can similarly be used to estimate the elasticities.
+Elasticities are closely linked with partial derivatives: When using a log-log model, as follows
+$$ \ln{\text{demand}}	 = \beta_0 +\beta_{\text{GasP}} \ln( \text{GasP}) + \beta_{\text{income}}\ln( \text{Income}) + \beta_{\text{ppt}} \ln (\text{PPT} )+\cdots $$
+Partial-deriving both sides with respect to GasP, Income and PPT gives
 \begin{align*}
-\log{\text{consumption}}	& = \beta_0 +\beta_{\text{GasP}} \text{GasP} + \beta_{\text{income}}\text{Income} + \beta_{\text{ppt}} \text{PPT} +\cdots \\
-\iff \text{consumption} &= \exp (\beta_0 +\beta_{\text{GasP}} \text{GasP} + \beta_{\text{income}}\text{Income} + \beta_{\text{ppt}} \text{PPT} +\cdots) \\
-\iff  \beta_{\text{GasP}} & = -.0012406 \approx \frac{\partial Q}{\partial P},  \quad \beta_{\text{Income}}  = .0000375 \approx  \frac{\partial Q}{\partial I},\quad \beta_{\text{PPT}} = .0019642 \approx \frac{\partial Q}{\partial X}\\
-\iff \text{PED}_{\text{2004}} &= -0.02493, \quad \text{YED}_{\text{2004}} = 0.1649, \quad \text{XED}_{\text{2004}} = 0.06663
+\frac{\partial \text{ demand}}{ \partial \text{ GasP}} \frac{1}{\text{demand}}= \frac{\beta_{\text{GasP}}}{\text{GasP}}  \iff & \beta_{\text{GasP}} =  \frac{\partial \text{ demand}}{ \partial \text{ GasP}} \frac{\text{GasP}}{\text{demand}} = \underset{\text{(SE)}}{\widehat{\text{PED}}} = \underset{(.0540101)}{0.0605177} \\
+\frac{\partial \text{ demand}}{ \partial \text{ Income}} \frac{1}{\text{demand}}= \frac{\beta_{\text{Income}}}{\text{Income}}  \iff & \beta_{\text{Income}} =  \frac{\partial \text{ demand}}{ \partial \text{ Income}} \frac{\text{Income}}{\text{demand}} = \underset{\text{(SE)}}{\widehat{\text{YED}}} = \underset{(0.2503763)}{0.9929907}\\
+ \frac{\partial \text{ demand}}{ \partial \text{ PPT}} \frac{1}{\text{demand}}= \frac{\beta_{\text{PPT}}}{\text{Income}}  \iff & \beta_{\text{PPT}} =  \frac{\partial \text{ demand}}{ \partial \text{PPT}} \frac{\text{PPT}}{\text{demand}} = \underset{\text{(SE)}}{\widehat{\text{XED}}} = \underset{(0.136449)}{.0192726}
 \end{align*}
 
-The tables for the regression output is given in the appendix. The corresponding elasticities obtained from these coefficient estimates follow the same sign as the elasticities obtained in c, though with significantly less magnitude. 
-\begin{itemize}
-	\item The price elasticity of demand for gasoline is negative but greater than $-1$ in both c and d, and so is inelastic in both models, but is closer to 0 in and hence even less elastic (more inelastic) in d. 
-	\item The income elasticity of demand for gasoline is positive and less than 1 in both c. and d. --as would be expected of a necessity good-- but is closer to 0, and therefore more of a necessity good in d. 
-	\item The cross-price elasticity with respect to the price of transport is positive in both c. and d. --as would be expected of substitutes-- but is closer to 0 in d, suggesting a weaker relationship between the price of oil and the price of public transport as substitutes.
-\end{itemize}
-Therefore the model in d. generally posits weaker relationships between the variables than in c. I would favor the specification in d. because of its greater conformity to the assumption of homoskedasticity of the multiple linear regression model. By running the Breusch-Pagan test for heteroskedasticity on the residuals of both models, the residuals of the log-linear model in d. was not found to be significant for heteroskedasticity at the $\alpha = 0.05 $ level $(p = 0.0716 > 0.05)$, while the linear model in c. was significant $(p = 0.0248 < 0.05)$. 
+Thus the coefficient estimates can similarly be used to estimate the elasticities. The tables for the regression output is given in the appendix.  However, a key issue with doing this is assumes constant elasticity (isoelasticity), which is not necessarily the case, and has clear implications, such as in the calculation for PED or YED. The price elasticity of demand should be negative (increases in price shower lower demand), and was previously estimated to be -0.22 in 2004, but has difficulty establishing even the non-positiveness of the price elasticity - most likely because of the prominence of oil crises, such as the oil crises of 1973 and 1979. During such crises, the shortage of oil, real or perceived, led to concerns (and sometimes panic). The price of oil endogenously affects, and is affected by demand, creating a feedback loop in which higher prices cause panic and greater demand, and thus there were periods in which the price elasticity of demand was positive.
+\\
+ 
+Similarly, regression did not find the estimate of the cross-price elasticity significant from 0. In c, the cross-price elasticity with respect to the price of transport in 2004 is positive, as would be expected of substitutes. Thus the specification in d. fails to capture and take into account fluctuations within the elasticities themselves over time, and the specification in a. is preferred, as it allows for more accurate point-price elasticities to be computed.
 
+\newpage
 \item \textbf{Compute the simple correlations of the price variables. Would you conclude that multicollinearity is a ``problem'' for the regression in part a or part d?}
 
 Looking at the correlation table in the appendix, there clearly is a high degree of collinearity in between the variables, with multiple pairwise correlations being above 0.9. While there is no exact collinearity, and calculations can be done, the model will have trouble allocating explanatory power amongst the independent variables.
 
-\newpage
+
 \item \textbf{Notice that the price index for gasoline is normalized to 100 in 2000, whereas the other price indices are anchored at 1983 (roughly). If you were to renormalize the indices so that they were all 100.00 in 2004, then how would the results of the regression in part a change? How would the results of the regression in part d change?}\\
 
 Price indices represent relative changes with respect to a given base year. In order to renormalize the index to a different year, divide each data point by the price of the desired base year, and multiply by 100. For example, the new index number for the price of public transport for the year 1983 (the previous base year) when using 2004 as the new base is:
@@ -150,14 +166,34 @@ Word Count (excluding questions, tables, charts, graphs and appendix):
 
 \newpage
 \section{Appendix}
-\subsection*{First 15 Observations}
+\hypertarget{first15}{\subsection*{First 15 Observations}}
 
 
-\label{sec: 15obs}
+
+\begin{table}[h!]
+\begin{tabular}{|l|lllllllll|}
+\hline
+personid & \multicolumn{1}{l|}{educ} & \multicolumn{1}{l|}{logwage} & \multicolumn{1}{l|}{potexper} & \multicolumn{1}{l|}{timetrnd} & \multicolumn{1}{l|}{ability} & \multicolumn{1}{l|}{mothered} & \multicolumn{1}{l|}{fathered} & \multicolumn{1}{l|}{brknhome} & siblings \\ \hline
+1        & 13                        & 1.82                         & 1                             & 0                             & 1                            & 12                            & 12                            & 0                             & 1        \\ \cline{1-1}
+2        & 15                        & 2.14                         & 4                             & 6                             & 1.5                          & 12                            & 12                            & 0                             & 1        \\ \cline{1-1}
+3        & 10                        & 1.56                         & 1                             & 2                             & -0.36                        & 12                            & 12                            & 1                             & 1        \\ \cline{1-1}
+4        & 12                        & 1.85                         & 1                             & 3                             & 0.26                         & 12                            & 10                            & 1                             & 4        \\ \cline{1-1}
+5        & 15                        & 2.41                         & 2                             & 3                             & 0.3                          & 12                            & 12                            & 1                             & 1        \\ \cline{1-1}
+6        & 15                        & 1.83                         & 2                             & 2                             & 0.44                         & 12                            & 16                            & 0                             & 2        \\ \cline{1-1}
+7        & 15                        & 1.78                         & 3                             & 8                             & 0.91                         & 12                            & 12                            & 0                             & 1        \\ \cline{1-1}
+8        & 13                        & 2.12                         & 4                             & 0                             & 0.51                         & 12                            & 15                            & 1                             & 2        \\ \cline{1-1}
+9        & 13                        & 1.95                         & 2                             & 0                             & 0.86                         & 12                            & 12                            & 0                             & 2        \\ \cline{1-1}
+10       & 11                        & 2.19                         & 5                             & 3                             & 0.26                         & 12                            & 12                            & 0                             & 2        \\ \cline{1-1}
+11       & 12                        & 2.44                         & 1                             & 2                             & 1.82                         & 16                            & 17                            & 1                             & 2        \\ \cline{1-1}
+12       & 13                        & 2.41                         & 4                             & 2                             & -1.3                         & 13                            & 12                            & 0                             & 5        \\ \cline{1-1}
+13       & 12                        & 2.07                         & 3                             & 0                             & -0.63                        & 12                            & 12                            & 1                             & 4        \\ \cline{1-1}
+14       & 12                        & 2.2                          & 6                             & 4                             & -0.36                        & 10                            & 12                            & 1                             & 2        \\ \cline{1-1}
+15       & 12                        & 2.12                         & 3                             & 4                             & -0.28                        & 10                            & 12                            & 1                             & 3        \\ \hline
+\end{tabular}
+\end{table}
 
 
-\subsection*{Regression Table for $y$ on $X_1$}
-\label{sec: table1}
+\hypertarget{yonx1}{\subsection*{Regression Table for $y$ on $X_1$}}
 \begin{verbatim}
       Source |       SS           df       MS      Number of obs   =    17,919
 -------------+----------------------------------   F(3, 17915)     =   1252.94
@@ -177,7 +213,7 @@ Word Count (excluding questions, tables, charts, graphs and appendix):
 \end{verbatim}
 
 
-\subsection*{Regression Table for $y$ on $X_1$}
+\hypertarget{yonx1x2}{\subsection*{Regression Table for $y$ on $X_1$ and $X_2$}}
 \label{sec: table2}
 \begin{verbatim}
       Source |       SS           df       MS      Number of obs   =    17,919
@@ -200,6 +236,72 @@ Word Count (excluding questions, tables, charts, graphs and appendix):
 ------------------------------------------------------------------------------
 
 \end{verbatim}
+
+\newpage
+\hypertarget{nointercept}{\subsection*{Regression Table for $y$ on $X_1$ and $X_2$, no intercept}}
+\label{sec: table2}
+\begin{verbatim}
+      Source |       SS           df       MS      Number of obs   =    17,919
+-------------+----------------------------------   F(6, 17912)     =    632.02
+       Model |  873.550652         6  145.591775   Prob > F        =    0.0000
+    Residual |  4126.17535    17,912   .23035816   R-squared       =    0.1747
+-------------+----------------------------------   Adj R-squared   =    0.1744
+       Total |  4999.72601    17,918  .279033709   Root MSE        =    .47996
+
+------------------------------------------------------------------------------
+     logwage |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        educ |   .0722035   .0022508    32.08   0.000     .0677918    .0766152
+    potexper |   .0395093   .0008993    43.94   0.000     .0377467    .0412719
+     ability |   .0774678   .0049373    15.69   0.000     .0677903    .0871453
+    mothered |   -.000117   .0016963    -0.07   0.945     -.003442     .003208
+    fathered |   .0054569   .0013387     4.08   0.000      .002833    .0080809
+    siblings |   .0047656   .0017924     2.66   0.008     .0012523    .0082789
+       _cons |   .9695096   .0337054    28.76   0.000     .9034437    1.035575
+------------------------------------------------------------------------------
+
+\end{verbatim}
+
+\hypertarget{ramsay}{\subsection*{Ramsay RESET in the Regression of $y$ on $X_1$}}
+\begin{verbatim}
+	Ramsey RESET test using powers of the fitted values of logwage
+       Ho:  model has no omitted variables
+               F(3, 17912) =      3.32
+                  Prob > F =      0.0190
+\end{verbatim}
+\subsection*{Ramsay RESET in the Regression of $y$ on $X_1$ and $X_2$}
+\begin{verbatim}
+Ramsey RESET test using powers of the fitted values of logwage
+       Ho:  model has no omitted variables
+               F(3, 17909) =      4.20
+                  Prob > F =      0.0056
+\end{verbatim}
+
+\hypertarget{vif}{\subsection*{Variance Inflation Factor in the Regression of $y$ on $X_1$}}
+\begin{verbatim}
+             |     educ potexper  ability
+-------------+---------------------------
+        educ |   1.0000
+    potexper |  -0.2187   1.0000
+     ability |   0.5279  -0.2222   1.0000
+
+\end{verbatim}
+
+\subsection*{Variance Inflation Factor in the Regression of $y$ on $X_1$ and $X_2$}
+
+\begin{verbatim}
+    Variable |       VIF       1/VIF  
+-------------+----------------------
+    mothered |      2.00    0.500127
+    fathered |      1.98    0.505565
+     ability |      1.63    0.614889
+        educ |      1.46    0.686681
+    siblings |      1.12    0.889541
+    potexper |      1.07    0.933196
+-------------+----------------------
+    Mean VIF |      1.54	
+\end{verbatim}
+
 
 \subsection*{Regression Table for Gasoline Per Capita Consumption on other variables}
 \begin{verbatim}
