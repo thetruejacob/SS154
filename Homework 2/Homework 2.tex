@@ -64,12 +64,12 @@ $$ \bar{R}^2 = 1 - (1-R^2) \frac{n-1}{n-p-1} = 1-(1-0.17471)\frac{17919}{17919-6
 And similarly in the no-intercept model, we have
 $$ \bar{R}_0^2 = 1-(1-0.13659)\frac{17919}{17919-6-1} = 0.13625 $$
 
-In this particular case, the intercept term is statistically significant in the full regression, and helps to explain more of the variance in the dependent variable. More generally, the intercept term helps in reducing some of the restrictions in the model. By including the intercept term, the mean of the least squares residual is always zero. This is assumption MR2 of the multiple regression model, and without the intercept term, MR2 is not guaranteed.\footnote{\#econometrictheory}
+Whether or not we need the constant term depends on whether the model is better with or without it. There is some economic sense to the intercept model. Even if someone has no education, potential experience or ability, they should still be able to make minimum wage, which is greater than 0. From a statistical point of view, including the intercept gives nicer properties, such as guaranteeing that the mean of the least squares residual is zero, in line with assumption MR2 of the multiple regression model. Conversely, forcing the regression line through the origin will usually result in the residuals having nonzero mean, as this is almost always inconsistent with the best fit line. Finally, we have evidence that the intercept term was found statistically significant. Including it should increase explanatory power, and we see this in the increase in the adjusted $R^2$.\footnote{\#modeltesting: I choose between the form of $f_1(y) = \beta_0 + \textbf{B}_1 X_1 + \textbf{B}_{2} X_2$ and $f(y) = \textbf{B}_1 X_1 + \textbf{B}_{2} X_2$ (no intercept), by answering the question of whether we need the constant term. arguing that while a no constant makes economic, this model cannot be used for extrapolation in any case. I also arguing that the intercept was found statistically significant, and helps in creating a better model from the perspective of the adjusted $R^2$. Furthermore, residuals will usually have a nonzero mean, because forcing the regression line through the origin is generally inconsistent with best fit. This in turn violates the Gauss-Markov assumptions, and the obtained coefficients are no longer the best linear unbiased estimators (BLUE). }
 \newpage
 \item \textbf{Are any of the classical assumptions violated in part a or part b? Refer to the assumptions MR1, MR2, MR5, and MR6.} 
 \begin{itemize}
-	\item MR1 states that the model linearly depends on the values of the explanatory variables, and the unknown parameters. This is a matter of model specification, and a log-linear model, such as the one in this problem, conforms to this assumption. 
-	\item MR2 states that each random errors has a probability distribution with zero mean. If there is omitted variable bias, or otherwise some significant specification error, this assumption is violated. \hyperlink{ramsay}{ Specifically, omitted variable bias can be detected through the Ramsay RESET test}, which gives $p =0.019<\alpha =0.05$ and $p=0.0056 < \alpha = 0.05$ respectively. Thus there is likely some misspecification and this assumption is violated.
+	\item MR1 states that the model linearly depends on the values of the explanatory variables, and the unknown parameters. If there is omitted variable bias, or otherwise some significant specification error, this assumption is violated. \hyperlink{ramsay}{ Specifically, omitted variable bias can be detected through the Ramsay RESET test}, which gives $p =0.019<\alpha =0.05$ and $p=0.0056 < \alpha = 0.05$ respectively. Thus there is likely some misspecification and this assumption is violated.
+	\item MR2 states that each random errors has a probability distribution with zero mean.
 	\item MR5 states that there is no exact collinearity or multicollinearity among the explanatory variables. \hyperlink{vif}{We can also check the VIF tables, given in the appendix. The mean VIF for the two regressions are 1.3 and 1.54, indicating that there is not a problemtic amount of multicollinearity.}
 	\item MR6 states that the residuals are normally distributed, in other words $e_i  \sim N(0, \sigma^2)$. While a histogram of the residuals would suggests the assumption of normality to be more or less reasonable, we can calculate the Jarque-Bera statistic, taking the values of skewness and kurtosis from Stata's summarize. 
 \begin{align*}
@@ -79,6 +79,7 @@ JB_2 &= \frac{17919}{6}\Big((-0.4593643)^2 + \frac{(4.394376-3)^2}{4} \Big) = 20
 \end{align*}
 With 5.99 being the critical value for the corresponding $\chi_2^2$ distribution, we can conclude at the $5\%$ significance level that the residuals do not show follow a normal distribution. However, to what extent this statistical significance achieves a practical significance is to be determined.
 \end{itemize}
+Overall, the most concerning violation of the classical assumptions is MR2, or the strict exogeneity assumption. There is possible problems such simultaneity (reverse causality in the form of the dependent variable, wages, having an effect on the independent variables (e.g. education, which could be prohibitively expensive), which makes it difficult to define and infer causality in this example. Another concern is MR1, which deals with model specification. There is likely some misspecification error in the form of omitted variable bias, which can similarly impact our coefficient estimates.\footnote{\#statisticalinference: I assess, using the Ramsay RESET test for MR1, VIF for MR5, and the Jarque-Bera for MR6, whether some of the Gauss-Markov assumptions for the coefficient estimates from the two regressions to be BLUE. I use appropriate statistics, such as an explicit calculation of the Jarque-Bera statistic, which follows the chi-squared distribution, or the Ramsay RESET, which uses the F-test to support my argument. Finally, I justify the possible violations to the exogeneity assumption (MR2) by referring to the dataset.}
 
 
 
@@ -96,26 +97,26 @@ The signs of the estimates make sense. A rise in (disposable) income, for exampl
 
 Here, the null and alternative hypotheses are:
 $$ H_0:\frac{\partial demand}{\partial P_{nc}}=\frac{\partial demand}{\partial P_{uc}} \iff \beta_{pnc} - \beta_{puc} =0, \quad H_A: \frac{\partial demand}{\partial P_{nc}} \neq \frac{\partial demand}{\partial P_{uc}} \iff \beta_{pnc} - \beta_{pnc} \neq 0$$
-We obtain the test statistic as follows, and obtain estimates for variances and covariance from Stata:
+Because we are testing only one set of linear combination of coefficients, we can use the t-test. We obtain the test statistic as follows, and obtain estimates for variances and covariance from Stata:
 \begin{align*}
-t = \frac{\bar{x}-\mu}{SE} =  \frac{\hat{\beta}_{pnc}-  \hat{\beta}_{puc}}{\sqrt{{\text{Var}}(\hat{\beta}_{pnc} - \hat{\beta}_puc)}} & = \frac{\hat{\beta}_{pnc} - \hat{\beta}_{puc}}{\sqrt{ {\text{Var}(\hat{\beta}_{pnc})}  + {\text{Var}(\hat{\beta}_{puc})} + 2 { \text{Cov}(\hat{\beta}_{pnc}, \hat{\beta}_{puc})  }  }    } \sim t_{42}  \\
+t = \frac{\bar{x}-\mu}{SE} =  \frac{\hat{\beta}_{pnc}-  \hat{\beta}_{puc}}{\sqrt{{\text{Var}}(\hat{\beta}_{pnc} - \hat{\beta}_puc)}} & = \frac{\hat{\beta}_{pnc} - \hat{\beta}_{puc}}{\sqrt{ {\text{Var}(\hat{\beta}_{pnc})}  + {\text{Var}(\hat{\beta}_{puc})} + 2 { \text{Cov}(\hat{\beta}_{pnc}, \hat{\beta}_{puc})  }  }    } \sim t_{42}(0, {\text{Var}(\hat{\beta}_{pnc} - \hat{\beta}_puc)})  \\
 & = \frac{(0.0005774) - (-0.0058746)}{\sqrt{.00016497 + .00002372 + 2(0.000009359)}} = 0.448 < t_{42}^{*} = 2.02
 \end{align*}
 	
-Thus we fail  at $5\%$ significance level $(p = 0.656 > 0.05)$ to reject the null hypothesis that there is a difference between the two coefficients. 
+Thus we fail  at $5\%$ significance level $(p = 0.656 > 0.05)$ to reject the null hypothesis that there is a difference between the two coefficients.\footnote{\#econometrictheory: I develop the t-test for a linear combination of parameters, arguing for a manual calculation which is more exact than Stata, which might use an approximation of the variance via the delta method. I use the correct formula for estimating the variance, clearly show my work, and conclude that the test is not significant, justifying the analysis.} 
 
 
 
 \item \textbf{Estimate the own price elasticity of demand, the income elasticity, and the cross-price elasticity with respect to changes in the price of public transportation. Do the computations at the 2004 point in the data, which means that the covariates should take the values corresponding to 2004 (i.e., use the "if" command instead of "at").}
 
-The tables for the elasticities are given in the appendix. The estimated proportional elasticities of gasoline consumption  with respect to proportion changes in price, income, and price of public transportation in 2004 can also be computed manually via:
+The tables for the. computer-generated elasticities are given in the appendix. The estimated proportional elasticities of gasoline consumption  with respect to proportion changes in price, income, and price of public transportation in 2004 can also be computed manually via:
 \begin{align*}
 \text{PED}_{2004} &= \frac{\partial Q}{\partial P}\frac{P_{2004}}{Q_{2004}} = \beta_{\text{GasP}} \Big( \frac{\text{GasP}_{2004}}{\text{Demand}_{2004}} \Big)   = (-.0110838)\frac{123.901}{6.164056} &&= -0.2225 \\
 \text{YED}_{2004} &= \frac{\partial Q}{ \partial I}\frac{I_{2004}}{Q_{2004}} = \beta_{\text{Income}} \Big( \frac{\text{Income}_{2004}} {\text{Demand}_{2004}} \Big) =(0.0002157)\frac{27113}{6.164056} &&= 0.9488 \\
 \text{XED}_{2004} &= \frac{\partial Q}{ \partial X} \frac{X_{2004}}{Q_{2004}} = \beta_{ppt} \Big( \frac{ppt_{2004}}{\text{Demand}_{2004}} \Big) =  (	0.0069073) \frac{209.1}{6.164056} &&= 0.2343
 \end{align*}
 
-This matches the computer-generated elasticities.
+
 
 
 \item \textbf{Reestimate the regression in logarithms so that the coefficients are direct estimates of the elasticities. (Do not use the log of the time trend). How do your estimates compare with the results in the previous question? Which specification do you prefer?}
@@ -132,7 +133,7 @@ Partial-deriving both sides with respect to GasP, Income and PPT gives
 Thus the coefficient estimates can similarly be used to estimate the elasticities. The tables for the regression output is given in the appendix.  However, a key issue with doing this is assumes constant elasticity (isoelasticity), which is not necessarily the case, and has clear implications, such as in the calculation for PED or YED. The price elasticity of demand should be negative (increases in price shower lower demand), and was previously estimated to be -0.22 in 2004, but has difficulty establishing even the non-positiveness of the price elasticity - most likely because of the prominence of oil crises, such as the oil crises of 1973 and 1979. During such crises, the shortage of oil, real or perceived, led to concerns (and sometimes panic). The price of oil endogenously affects, and is affected by demand, creating a feedback loop in which higher prices cause panic and greater demand, and thus there were periods in which the price elasticity of demand was positive.
 \\
  
-Similarly, regression did not find the estimate of the cross-price elasticity significant from 0. In c, the cross-price elasticity with respect to the price of transport in 2004 is positive, as would be expected of substitutes. Thus the specification in d. fails to capture and take into account fluctuations within the elasticities themselves over time, and the specification in a. is preferred, as it allows for more accurate point-price elasticities to be computed.
+Similarly, regression did not find the estimate of the cross-price elasticity significant from 0. In c, the cross-price elasticity with respect to the price of transport in 2004 is positive, as would be expected of substitutes. Thus the specification in d. fails to capture and take into account fluctuations within the elasticities themselves over time, and the specification in a. is preferred, as it allows for more accurate point-price elasticities to be computed.\footnote{\#specification: I use economic reasoning to evaluate if an isoelastic model is reasonable in the context of oil prices, arguing that the model does not accurately estimate the price elasticity of demand, because of unusual economic patterns in the dataset. I refer to a time series of gasoline prices, which showed a different trend in oil crises, such as during 1973 and 1979. I thoroughly explain the economic mechanisms (mania and panic) that violate the traditional demand and supply model.}
 
 \newpage
 \item \textbf{Compute the simple correlations of the price variables. Would you conclude that multicollinearity is a ``problem'' for the regression in part a or part d?}
@@ -157,7 +158,7 @@ $$\beta_{ppt}^* = \beta_{ppt} \times \frac{ppt_{2004}}{100} = (0.0019642) \times
 \end{enumerate}
 
 
-Word Count (excluding questions, tables, charts, graphs and appendix): 
+Word Count (excluding questions, tables, charts, graphs and appendix): 1200
 
 \bibliography{bib}
 \bibliographystyle{plain}
@@ -351,8 +352,115 @@ ey/ex w.r.t. : income gasp ppt
 ------------------------------------------------------------------------------
 \end{verbatim}
 
+\section*{Full .Do File}
+\begin{verbatim}
+clear all
+import delimited Koop-Tobias.csv
+
+egen first_obs = min(timetrnd), by(personid)
+list personid educ logwage potexper timetrnd ability mothered fathered brknhome siblings if first_obs == timetrnd in 1/100
+global x1 educ potexper ability
+global x2 mothered fathered siblings
+global y logwage
+regress $y $x1
+regress $y $x1 $x2
+regress $y $x1 $x2, noconstant
+
+// MR1, specification (omitted variable) bias
+qui reg $y $x1
+estat ovtest
+qui reg $y $x1 $x2
+estat ovtest	
+
+// MR2, exogeneity
+qui reg $y $x1
+predict res1, resid
+reg $y $x1 res1
+test res1
+qui reg $y $x1 $x2
+predict res2, resid
+qui reg $y $x1 $x2 res2
+test res2
+
+// MR5, collinearity
+corr $x1
+qui reg logwage educ potexper ability
+estat vif
+corr $x1 $x2
+qui reg logwage educ potexper ability mothered fathered siblings
+estat vif
 
 
+// MR6, normality of residuals
+qui reg $y $x1
+predict residuals1, resid
+hist residuals1, normal
+summarize residuals1, detail
+
+qui reg $y $x1 $x2
+predict residuals2, resid
+hist residuals2, normal
+summarize residuals2, detail
+
+
+clear 
+import delimited TableF2-2.csv
+gen demand = (gasexp*10^9) / (gasp * pop*10^3)
+list in -10/l
+scatter gasp year
+
+regress demand income gasp pnc puc ppt pd pn ps year
+predict resid, resid
+
+matrix list e(V) // for manual calculation
+test pnc = puc // automatic test
+
+summarize gasp income ppt demand if year == 2004 // for manual calculation
+margins if year == 2004, eyex(gasp income ppt) // automatic calculation
+
+gen ldemand = ln(demand)
+gen lgasp = ln(gasp)
+gen lincome = ln(income)
+gen lpnc = ln(pnc)
+gen lpuc = ln(puc)
+gen lppt = ln(ppt)
+gen lpd = ln(pd)
+gen lpn = ln(pn)
+gen lps = ln(ps)
+
+regress ldemand lincome lgasp lpnc lpuc lppt lpd lpn lps year
+predict log_resid, resid
+
+pwcorr pnc puc ppt pd pn ps
+
+qui regress demand income gasp pnc puc ppt pd pn ps year
+vif
+qui regress ldemand income gasp pnc puc ppt pd pn ps year
+vif
+
+gen gasp_new = (gasp * 100) / gasp[52]
+gen pnc_new = (pnc * 100) / pnc[52]
+gen puc_new = (puc * 100) / puc[52]
+gen ppt_new = (ppt * 100) / ppt[52]
+gen pd_new = (pd * 100) / pd[52]
+gen pn_new = (pn * 100) / pn[52]
+gen ps_new = (ps * 100) / ps[52]
+
+regress demand income gasp pnc puc ppt pd pn ps year
+regress demand income gasp_new pnc_new puc_new ppt_new pd_new pn_new ps_new year
+
+gen lgasp_new = log(gasp_new)
+gen lpnc_new = log(pnc_new)
+gen lpuc_new = log(puc_new)
+gen lppt_new = log(ppt_new)
+gen lpd_new = log(pd_new)
+gen lpn_new = log(pn_new)
+gen lps_new = log(ps_new)
+
+regress ldemand lincome lgasp lpnc lpuc lppt lpd lpn lps year
+regress ldemand lincome lgasp_new lpnc_new lpuc_new lppt_new lpd_new lpn_new lps_new year
+
+\end{verbatim}
 
 
 
