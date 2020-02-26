@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[left=2cm, right=2cm, top=0cm]{geometry}
+\usepackage[left=2cm, right=2cm]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fancyvrb}
@@ -19,36 +19,49 @@
 %    urlcolor=blue
 %}
 \begin{document}
-\title{Homework 3}
+\title{\vspace{-2.0cm}Homework 3}
 \author{Jacob Puthipiroj}
 %\date{}
 \maketitle
 
 \section{A Theory of Extramarital Affairs}
 
-Fair considered possible models for extramarital affairs \cite{fair1978theory} and 
+\begin{enumerate}[label=(\alph*)]
+\item The regressors of interest are $v1$ to $v8$; however, not necessarily all of them belong in your model. Use these data to build a binary choice model for $A$. Report all computed results for the model. Compute the marginal effects for the variables you choose. Compare the results you obtain for a probit model to those for a logit model. Are there any substantial differences in the results for the two models?\\
 
-\subsection{Building a binary choice model for $A$}
+The specification of the probit model is 
+$$ p = \Phi(\beta_0 + \textbf{B}x), \ \Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2 \pi } } e^{-\frac{1}{2}x^2} dx$$
 
-\subsection{}
 
+The specification of the logit model is 
+$$ p = \frac{1}{1+e^{-l}} = \frac{e^l}{1 + e^l}, \ l = \ln \Big( \frac{p}{1-p} \Big) = \beta_0 + \textbf{B}x$$
+
+In both cases, the model results can be based off certain parts of the data. We then cross-validate both models to see which one is generally better.
+
+The marginal effects of each variable vary at different points, and as such we compute instead the average marginal effects (AME) for each of them. 
+
+The difference is that one is better than the other. This one is better. 
+
+
+\item Continuing the analysis from part a), we now consider the self-reported rating, $v1$. This is a natural candidate for an ordered choice model, because the simple five-item coding is a censored version of what would be a continuous scale on some subjective satisfaction variable. Analyze this variable using an ordered probit model. What variables appear to explain the response to this survey question? Can you obtain the marginal effects for your model? Report them as well. What do they suggest about the impact of the different independent variables on the reported ratings?
+
+
+
+\end{enumerate}
+
+
+\newpage
 \section{Incentive Effects in the Demand for Health Care}
-
 Riphahn et al considered health care in Germany \cite{riphahn2003incentive}
 
+(Greene 8th edition Chapter 18)
+\begin{enumerate}[label=(\alph*)]
+\item Begin by fitting a Poisson model to this variable. The exogenous variables are listed in Table F7.1. Determine an appropriate specification for the right-hand side of your model. Report the regression results and the marginal effects.
+\item Estimate the model using ordinary least squares and compare your least squares results to the marginal effects computed in part a). What do you find?
+\item Is there evidence of overdispersion in the data? Test for overdispersion.
+\end{enumerate}
 
-\subsection{Building a Poisson model}
-
-\subsubsection{Determining an appropriate specification}
-
-\subsubsection{Regression Results and Marginal effects}
-
-\subsection{Building an OLS model}
-
-\subsubsection{Comparison with the Marginal effects}
-
-\subsection{Overdispersion}
-
+\newpage
 
 \section{Appendix}
 The accompanying code is given as a Jupyter Notebook (in Stata) as well as a .do file.
