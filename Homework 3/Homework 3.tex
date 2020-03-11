@@ -9,7 +9,7 @@
 \usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usepackage{hyperlink}
+\usepackage{hyperref}
 \setlength\parindent{0pt}
 % \hypersetup{
 %    colorlinks,
@@ -19,10 +19,11 @@
 %    urlcolor=blue
 %}
 \begin{document}
-\title{\vspace{-2.0cm}Homework 3}
+\title{\vspace{-2.0cm}Homework 2}
 \author{Jacob Puthipiroj}
 %\date{}
 \maketitle
+
 
 \section{A Theory of Extramarital Affairs}
 
@@ -38,16 +39,20 @@ $$ p = \frac{1}{1+e^{-l}} = \frac{e^l}{1 + e^l}, \ l = \ln \Big( \frac{p}{1-p} \
 
 In both cases, $\beta_0$ is the intercept, and we define $\textbf{Bx}$ as
 $$ \textbf{B}\textbf{x} = \sum_{i=1}^6\beta_i v_i + \sum_{i=1}^6\delta_{i,occ} v_{i,occ} +\sum_{i=1}^6 \delta_{i,hoc} v_{i,hoc}$$
-Thus all variables $v_1$ through $v_6$ (rating, age, years, children, religiosity, and education) are thought to be continuous variables, while the occupation of the wife and husband are considered indicator variables, with each $\delta_i$ corresponding to each of the 6 occupation categories. The output of the probit regression is available \hyperlink{probitoutput}{here}, and the output of the logit regression \hyperlink{here}{logitoutput} in the appendix. \\
+Thus all variables $v_1$ through $v_6$ (rating, age, years, children, religiosity, and education) are thought to be continuous variables, while the occupation of the wife and husband are considered indicator variables, with each $\delta_i$ corresponding to each of the 6 occupation categories. The output of the probit regression is available \hyperlink{probitoutput}{here}, and the output of the logit regression \hyperlink{logitoutput}{here in the appendix}. In both the probit and logit model, the same coefficients were considered significant at the $\alpha = 0.05$ level: rating, age, years, religiosity,  and the two dummy variables for the occupation of the wife being in a managerial, administrative or business role $\delta_{5, occ}$ and being a professional with an advanced degree, $\delta_{6,occ}$.\\ 
 
-The marginal effects of each variable vary at different points, and as such we compute instead the average marginal effects (AME) by calculating the marginal effect for each individual with their observed levels of covariates, which are then averaged across individuals. The AMEs for the variables in the probit model is available \hyperlink{probitame}{here in the appendix.} Some interesting results included the signs of the coefficients for age and years - Age has a negative sign, meaning that the older the wife is, the less likely they are to have cheated. However, the longer the marriage is, the likelier they are to have cheated. The better their marriage rating, and the more religious the wife is, the less likelier they are to have cheated. A final interesting note is that females in managerial and professional careers are more likely to have cheated - according to the AME, roughly $18\%$ more likely than if the wife was a student. The marginal effets of the logit model were similar, available \hyperlink{logitame}{here in the appendix}. There were no substantial differences in the results between the two models.
+The negative signs for $\beta_{\text{rating}}$  and $\beta_{\text{religiosity}}$ make sense: The better one rates [satisfaction of] a marriage, the less reason there is to be involved in an extramarital affair. Similarly, the more religious one is, the less one is less likely to cheat, perhaps due to religious beliefs concerning the (im)morality of infidelity. The negative sign for $\beta_{\text{age}}$ implies that older women cheat less, when controlled for the years of the marriage (both are highly correlated with each other at $r =  0.8941$). $\beta_{\text{years}}$ is positive, perhaps because as a marriage drags on, one is more inclined to look elsewhere for emotional or physical fulfillment, such as an extramarital affair. A final interesting note is that females in managerial and professional careers are more likely to have cheated if they were a student. \\
 
-\newpage
-\item Continuing the analysis from part a), we now consider the self-reported rating, $v1$. This is a natural candidate for an ordered choice model, because the simple five-item coding is a censored version of what would be a continuous scale on some subjective satisfaction variable. Analyze this variable using an ordered probit model. What variables appear to explain the response to this survey question? Can you obtain the marginal effects for your model? Report them as well. What do they suggest about the impact of the different independent variables on the reported ratings?
+The marginal effects of each variable vary at different points, and as such we compute instead the average marginal effects (AME) by calculating the marginal effect for each individual with their observed levels of covariates, which are then averaged across individuals. The AMEs for the variables in the probit model is available \hyperlink{probitame}{here in the appendix.} The marginal effets of the logit model were similar, available \hyperlink{logitame}{here in the appendix}. There were no substantial differences in the results between the two models. On average, each additional increase in the reported marriage score decreased the probability of cheating by around $13\%$, each additional year of the female decreased the probability by $1.1\%$, each additional year of marriage increased the probability by $2\%$, each additional score of religiosity decreased the probability by $6.8\%$, being in a managerial, administrative or business occupation increased the probability of extramarital affairs by $18\%$, and being in a professional career with an advanced degree increased the probability by $19\%$, both compared to the baseline of being a student.\\
 
-The output for the ordered probit regression is available \hyperlink{oprobit}{here}. As seen, the only significant predictors (at the $\alpha = 0.05$ level) were children, and religiosity. Children had a negative sign, suggesting that it made marriages unhappier, while religiosity made marriages happier.\\
 
-The average marginal effects are available \hyperlink{oprobitame}{here}. An interesting finding suggested that children that were more 
+\item Continuing the analysis from part a), we now consider the self-reported rating, $v1$. This is a natural candidate for an ordered choice model, because the simple five-item coding is a censored version of what would be a continuous scale on some subjective satisfaction variable. Analyze this variable using an ordered probit model. What variables appear to explain the response to this survey question? Can you obtain the marginal effects for your model? Report them as well. What do they suggest about the impact of the different independent variables on the reported ratings?\\
+
+The output for the ordered probit regression is available \hyperlink{oprobit}{here}. As seen, the only significant predictors (at the $\alpha = 0.05$ level) were children, religiosity, and the husband's occupation being in farming, agriculture, semi-skilled, or unskilled labor. $\beta_{\text{children}}$ was negative, suggesting that more children made marriages unhappier, while $\beta_{\text{religiosity}} > 0$ suggests that more religiosity made marriages happier. $\delta_{2,hoc} < 0$, suggesting that wives were less satisfied with their marriage when their husbands were involved in menial labor, compared to when they (the husbands) were students.\\
+
+The average marginal effects are available \hyperlink{oprobitame}{here}. An interesting finding suggested that for people whose marriages were given a rating of 1, 2, 3 or 4, each additional child was found to increase marriage satisfaction by $0.2\%, 0.6\%, 1\%$, and $0.5\%$ respectively. However, when the marriage was rated 5, each additional child was found to decrease marriage satisfaction by $2.4\%$, creating a negative feedback loop and downward pressure away from the maximum satisfaction score. The opposite pattern was found for religiosity: each additional unit of religiosity decreased marriage satisfaction by $0.5\%, 1.2\%, 2\%$, and $1.1\%$ for marriages rated 1, 2, 3 or 4 respectively, but increased satisfaction by $5\%$ for marriages already rated at 5, creating a positive feedback loop. The average marginal effects for husbands having a menial labor occupation followed a similar pattern as that of children: $0.6\%, 1.5\%$ and $2.8\%$ for marriages rated 1, 2 or 3 respectively, not significant for marriages rated 4, and $-6.6\%$ for marriages rated 5.\\
+
+This suggests that different independent variables have different marginal effects for the dependent variable being at different levels. Having additional children, or having the husband pick up a menial labor job, for example, acts as a normalizer, and could improve the satisfaction of a failing marriage, but prevents the marriage from achieving the highest satisfaction level. On the other hand, religiosity would seem to be a polarizer, making bad marriages worse, and great marriages better.
 
 
  
@@ -57,11 +62,8 @@ The average marginal effects are available \hyperlink{oprobitame}{here}. An inte
 
 \newpage
 \section{Incentive Effects in the Demand for Health Care}
-Riphahn et al considered health care in Germany \cite{riphahn2003incentive}
 
-
-There were inconsistencies in the data. As Jim Oppen (2013) points out, there were a number of problem variables. For example, the handdum, the dummy variable indicating that someone was handicapped, was $87\%$. This is due to an inversion in the dummy variable, and confirmed by Riphahn's response (2013). The data is correctly fitted as follows. 	
-
+A note about this dataset: there were several mistakes in some of the data. The indicator variable handdum for example, was miscoded in the year 1987. Ones and zeros were swapped, and if not corrected, would imply that $88\%$ of the participants in 1987 were handicapped, when in reality it was $100 - 88 = 12\%$. The full list of coding errors are given \hyperlink{http://qed.econ.queensu.ca/jae/2003-v18.4/riphahn-wambach-million/readme.rwm.txt}{here}.\cite{riphahn2003incentive}
 
 
 \begin{enumerate}[label=(\alph*)]
@@ -71,14 +73,24 @@ The specification we have is
 
 	$$ \textbf{Bx}= \sum_{i=1}^4\beta_i v_i + \sum_{i=1}^3 \delta_i u_i$$
 
-Where $v_i$ indicate each of the four continuous variables of age, hsat, educ and docvis, and $u_i$ indicate each of the dummy variables handdum, addon, and bluec. The Poisson regression results are available \hyperlink{poisson}{here in the appendix}. All variables, save for the constant, were found to be significant.\\
+Where $v_i$ indicate each of the four continuous variables of age, hsat, educ and docvis, and $u_i$ indicate each of the dummy variables handdum, addon, and bluec. The Poisson regression results are available \hyperlink{poisson}{here in the appendix}. All variables, save for the constant, were found to be significant. Specifically, the coefficients for age, hsat, educ and bluec were negative, while the coefficients for docvis, handdum, and addon were positive.\\
 
-The margins are also given in the appendix \hyperlink{margins}{here}.
+The positive signs for $\beta_{\text{docvis}}, \delta_{\text{handdum}}$ and $\delta_{\text{addon}}$ are unsurprising. Individuals who have frequent doctor visits in the past 3 months are likely to also frequently visit hospitals in the last calendar year. Handicapped individuals may need to visit hospitals more, as a result of a chronic treatment for said handicap, or a new injury causing patients to become handicapped and require treatment. Finally, those who purchase add-on insurance may expect themselves to be more at risk of requiring healthcare. \\
 
+The negative signs for $\beta_{\text{hsat}}$ and $\beta_{\text{educ}}$ also make sense. Individuals who are more satisfied with their health are likely healthier, and require fewer hospital visits. More educated individuals may also make wiser health-related decisions, such as in career and lifestyle choices, and visit hospitals less often. The negative sign for $\delta_{\text{bluec}}$, however, is surprising, as workplace injuries (which would require hospital visits) should be more commonplace among blue collar workers. Several explanations are possible: Perhaps only physically healthier people would consider blue collar jobs, or, blue collar workers choose to visit hospitals only for the most serious injuries, either out of necessity or because of being desensitized to workplace injuries. $\beta_{\text{age}} < 0$ is similarly surprising. Despite (or because of) having weaker bodies, older people may make lifestyle and professional choices that would limit physical injuries.\\
+ 
+The marginal effects are given in the appendix \hyperlink{margins}{here}. Again, the marginal effects of all explanatory variables were significant. On average, being handicapped and being insured by addon insurance increased the expected number of hospital visits by $4\%$ and $5\%$ respectively, and each additional doctor visit in the past 3 months increased expected visits by $0.4\%$. Each additional year in age and in schooling decreased expected visits by $0.09\%$ and $0.6\%$ respectively. Each additional unit increase of  perceived health satisfaction on the 1-10 scale decreased expected visits by $2.5\%$. Finally, being in a blue-collar job decreased expected visits by $1.4\%$.
+
+\newpage
 
 \item Estimate the model using ordinary least squares and compare your least squares results to the marginal effects computed in part a). What do you find?
 
-The output is given \hyperlink{ols}{here in the appendix}. Unlike in the Poisson regression, the variables addon and bluec were found to be insignificant.
+The output is given \hyperlink{ols}{here in the appendix}. Unlike in the Poisson regression, the variables addon and bluec were found to be insignificant. In the OLS model with no interaction terms, the coefficient estimates are equivalent to the marginal effects, and can be compared with the AME of the Poisson regression. \\
+
+Like in the Poisson model, being handicapped had large marginal effects on increasing the expected number of visits, at $\hat{\delta}_{\text{handdum}} =5.8 \% $, comparable to the $4\%$ from the Poisson model. However, the coefficients for being on addon insurance, and in a blue-collar occupation were not significant. Each additional doctor visit in the past 3 months increased expected visits by $1.7\%$, comparable to the $4\%$ from the Poisson model. The marginal effects for each additional year in age and schooling was $-0.15\%$ and $-0.5\%$ respectively, compared to $-0.09\%$ and $0.6\%$ from the Poisson model. Each additional unit increase of  perceived health satisfaction on the 1-10 scale decreased expected visits by $2.4\%$, similar to $2.5\%$ from the Poisson model.\\
+
+Overall, the marginal effect estimates the were identical in sign and very similar in magnitude, though $\delta_{\text{addon}}$ and $\delta_{\text{bluec}}$ were not significant like they were in the Poisson model.
+
 
 
 \item Is there evidence of overdispersion in the data? Test for overdispersion.\\
@@ -287,6 +299,51 @@ Log likelihood = -7808.2421                     Pseudo R2         =     0.0149
 ------------------------------------------------------------------------------
 \end{verbatim}
 
+\newpage
+\hypertarget{oprobitame}{\subsection*{Ordered Probit Model AMEs}}
+\begin{verbatim}
+Average marginal effects                        Number of obs     =      6,366
+Model VCE    : OIM
+
+dy/dx w.r.t. : children religiosity 2.husbandocc
+1._predict   : Pr(rating==1), predict(pr outcome(1))
+2._predict   : Pr(rating==2), predict(pr outcome(2))
+3._predict   : Pr(rating==3), predict(pr outcome(3))
+4._predict   : Pr(rating==4), predict(pr outcome(4))
+5._predict   : Pr(rating==5), predict(pr outcome(5))
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+children      |
+     _predict |
+           1  |   .0023971   .0006187     3.87   0.000     .0011844    .0036098
+           2  |   .0059013   .0014541     4.06   0.000     .0030514    .0087513
+           3  |   .0103042   .0025046     4.11   0.000     .0053953     .015213
+           4  |   .0055807    .001379     4.05   0.000      .002878    .0082835
+           5  |  -.0241833   .0058533    -4.13   0.000    -.0356555   -.0127111
+--------------+----------------------------------------------------------------
+religiosity   |
+     _predict |
+           1  |  -.0049661   .0007522    -6.60   0.000    -.0064403   -.0034919
+           2  |   -.012226   .0015932    -7.67   0.000    -.0153486   -.0091034
+           3  |  -.0213475   .0026396    -8.09   0.000     -.026521   -.0161741
+           4  |  -.0115618   .0015105    -7.65   0.000    -.0145223   -.0086013
+           5  |   .0501015   .0060891     8.23   0.000     .0381671    .0620359
+--------------+----------------------------------------------------------------
+1.husbandocc  |  (base outcome)
+--------------+----------------------------------------------------------------
+2.husbandocc  |
+     _predict |
+           1  |   .0063213   .0027402     2.31   0.021     .0009505     .011692
+           2  |   .0157578   .0070883     2.22   0.026      .001865    .0296506
+           3  |   .0278462    .013252     2.10   0.036     .0018728    .0538196
+           4  |   .0156119    .009041     1.73   0.084    -.0021083     .033332
+           5  |  -.0655371    .031859    -2.06   0.040    -.1279795   -.0030947
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+\end{verbatim}
 
 \newpage
 \hypertarget{poisson}{\subsection*{Poisson Model}}
