@@ -28,7 +28,7 @@
 \section{A Theory of Extramarital Affairs}
 
 \begin{enumerate}[label=(\alph*)]
-\item The regressors of interest are $v1$ to $v8$; however, not necessarily all of them belong in your model. Use these data to build a binary choice model for $A$. Report all computed results for the model. Compute the marginal effects for the variables you choose. Compare the results you obtain for a probit model to those for a logit model. Are there any substantial differences in the results for the two models?\\
+\item \textbf{The regressors of interest are $v1$ to $v8$; however, not necessarily all of them belong in your model. Use these data to build a binary choice model for $A$. Report all computed results for the model. Compute the marginal effects for the variables you choose. Compare the results you obtain for a probit model to those for a logit model. Are there any substantial differences in the results for the two models?}\\
 
 The specification of the probit model is 
 $$ p = \Phi(\beta_0 + \textbf{B}x), \ \Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2 \pi } } e^{-\frac{1}{2}x^2} dx$$
@@ -38,22 +38,23 @@ The specification of the logit model is
 $$ p = \frac{1}{1+e^{-l}} = \frac{e^l}{1 + e^l}, \ l = \ln \Big( \frac{p}{1-p} \Big) = \beta_0 + \textbf{B}x$$
 
 In both cases, $\beta_0$ is the intercept, and we define $\textbf{Bx}$ as
-$$ \textbf{B}\textbf{x} = \sum_{i=1}^6\beta_i v_i + \sum_{i=1}^6\delta_{i,occ} v_{i,occ} +\sum_{i=1}^6 \delta_{i,hoc} v_{i,hoc}$$
-Thus all variables $v_1$ through $v_6$ (rating, age, years, children, religiosity, and education) are thought to be continuous variables, while the occupation of the wife and husband are considered indicator variables, with each $\delta_i$ corresponding to each of the 6 occupation categories. The output of the probit regression is available \hyperlink{probitoutput}{here}, and the output of the logit regression \hyperlink{logitoutput}{here in the appendix}. In both the probit and logit model, the same coefficients were considered significant at the $\alpha = 0.05$ level: rating, age, years, religiosity,  and the two dummy variables for the occupation of the wife being in a managerial, administrative or business role $\delta_{5, occ}$ and being a professional with an advanced degree, $\delta_{6,occ}$.\\ 
+$$ \textbf{Bx} = \beta_{1}\text{Rating} + \beta_2 \text{Age} + \beta_3 \text{Years} + \beta_4 \text{religiosity} + \delta_1 \text{professional} + \delta_2 \text{managerial}$$
 
-The negative signs for $\beta_{\text{rating}}$  and $\beta_{\text{religiosity}}$ make sense: The better one rates [satisfaction of] a marriage, the less reason there is to be involved in an extramarital affair. Similarly, the more religious one is, the less one is less likely to cheat, perhaps due to religious beliefs concerning the (im)morality of infidelity. The negative sign for $\beta_{\text{age}}$ implies that older women cheat less, when controlled for the years of the marriage (both are highly correlated with each other at $r =  0.8941$). $\beta_{\text{years}}$ is positive, perhaps because as a marriage drags on, one is more inclined to look elsewhere for emotional or physical fulfillment, such as an extramarital affair. A final interesting note is that females in managerial and professional careers are more likely to have cheated if they were a student. \\
+Thus the variables of rating, age, years, and religiosity are implicitly thought to be continuous variables, and there are indicator variables for if the wife is in a managerial/administrative/business role, or a professionalism with an advanced degree. These variables were chosen for the model via a process of backward elimination: first all the predictors were included, then the predictor with the highest p-value over $\alpha = 0.05$ was successively removed until the model only contained significant predictors. The probit model had an AIC and BIC of 6944 and 6992 respectively, while the logit model had an AIC and BIC of 6995 respectively, which were among the lowest found.  \\
 
-The marginal effects of each variable vary at different points, and as such we compute instead the average marginal effects (AME) by calculating the marginal effect for each individual with their observed levels of covariates, which are then averaged across individuals. The AMEs for the variables in the probit model is available \hyperlink{probitame}{here in the appendix.} The marginal effets of the logit model were similar, available \hyperlink{logitame}{here in the appendix}. There were no substantial differences in the results between the two models. On average, each additional increase in the reported marriage score decreased the probability of cheating by around $13\%$, each additional year of the female decreased the probability by $1.1\%$, each additional year of marriage increased the probability by $2\%$, each additional score of religiosity decreased the probability by $6.8\%$, being in a managerial, administrative or business occupation increased the probability of extramarital affairs by $18\%$, and being in a professional career with an advanced degree increased the probability by $19\%$, both compared to the baseline of being a student.\\
+The negative signs for $\beta_{\text{rating}}$  and $\beta_{\text{religiosity}}$ are unsurprising: The better one rates [satisfaction of] a marriage, the less reason there is to be involved in an extramarital affair. Similarly, the more religious one is, the less one is less likely to cheat, perhaps due to religious beliefs concerning the (im)morality of infidelity. The negative sign for $\beta_{\text{age}}$ implies that older women cheat less, when controlled for the years of the marriage (both are highly correlated with each other at $r =  0.8941$). $\beta_{\text{years}}$ is positive, perhaps because as a marriage drags on, one is more inclined to look elsewhere for emotional or physical fulfillment, such as an extramarital affair. A final interesting note is that females in managerial and professional careers are more likely to have cheated if they were a student. \\
+
+The marginal effects of each variable vary at different points, and as such we compute instead the average marginal effects (AME) by calculating the marginal effect for each individual with their observed levels of covariates, which are then averaged across individuals. The AMEs for the variables in the probit model is available \hyperlink{probitame}{here in the appendix.} The marginal effets of the logit model were similar, available \hyperlink{logitame}{here in the appendix}. There were no substantial differences in the results between the two models. On average, each additional increase in the reported marriage score decreased the probability of cheating by around $13\%$, each additional year of the female decreased the probability by $1.1\%$, each additional year of marriage increased the probability by $2\%$, each additional score of religiosity decreased the probability by $6.8\%$, being in a managerial, administrative or business occupation increased the probability of extramarital affairs by $9\%$, and being in a professional career with an advanced degree increased the probability by $10\%$, both compared to the baseline of being a student.\footnote{\#specification: I use backward elimination to obtain a model, justifying my model with its low AIC and BIC, as well as economic reasoning. I found no significant differences between probit and logit in terms of their results.}\\
 
 
-\item Continuing the analysis from part a), we now consider the self-reported rating, $v1$. This is a natural candidate for an ordered choice model, because the simple five-item coding is a censored version of what would be a continuous scale on some subjective satisfaction variable. Analyze this variable using an ordered probit model. What variables appear to explain the response to this survey question? Can you obtain the marginal effects for your model? Report them as well. What do they suggest about the impact of the different independent variables on the reported ratings?\\
+\item \textbf{Continuing the analysis from part a), we now consider the self-reported rating, $v1$. This is a natural candidate for an ordered choice model, because the simple five-item coding is a censored version of what would be a continuous scale on some subjective satisfaction variable. Analyze this variable using an ordered probit model. What variables appear to explain the response to this survey question? Can you obtain the marginal effects for your model? Report them as well. What do they suggest about the impact of the different independent variables on the reported ratings?}\\
 
-The output for the ordered probit regression is available \hyperlink{oprobit}{here}. As seen, the only significant predictors (at the $\alpha = 0.05$ level) were children, religiosity, and the husband's occupation being in farming, agriculture, semi-skilled, or unskilled labor. $\beta_{\text{children}}$ was negative, suggesting that more children made marriages unhappier, while $\beta_{\text{religiosity}} > 0$ suggests that more religiosity made marriages happier. $\delta_{2,hoc} < 0$, suggesting that wives were less satisfied with their marriage when their husbands were involved in menial labor, compared to when they (the husbands) were students.\\
+In this section, I employed an ordered probit regression using all variables, available \hyperlink{oprobit}{here in the appendix}. As seen, the only significant predictors (at the $\alpha = 0.05$ level) were children, religiosity, and the husband's occupation being in farming, agriculture, semi-skilled, or unskilled labor. $\beta_{\text{children}}$ was negative, suggesting that more children made marriages unhappier, while $\beta_{\text{religiosity}} > 0$ suggests that more religiosity made marriages happier. $\delta_{2,hoc} < 0$, suggesting that wives were less satisfied with their marriage when their husbands were involved in menial labor, compared to when they (the husbands) were students.\\
 
-The average marginal effects are available \hyperlink{oprobitame}{here}. An interesting finding suggested that for people whose marriages were given a rating of 1, 2, 3 or 4, each additional child was found to increase marriage satisfaction by $0.2\%, 0.6\%, 1\%$, and $0.5\%$ respectively. However, when the marriage was rated 5, each additional child was found to decrease marriage satisfaction by $2.4\%$, creating a negative feedback loop and downward pressure away from the maximum satisfaction score. The opposite pattern was found for religiosity: each additional unit of religiosity decreased marriage satisfaction by $0.5\%, 1.2\%, 2\%$, and $1.1\%$ for marriages rated 1, 2, 3 or 4 respectively, but increased satisfaction by $5\%$ for marriages already rated at 5, creating a positive feedback loop. The average marginal effects for husbands having a menial labor occupation followed a similar pattern as that of children: $0.6\%, 1.5\%$ and $2.8\%$ for marriages rated 1, 2 or 3 respectively, not significant for marriages rated 4, and $-6.6\%$ for marriages rated 5.\\
+The average marginal effects are available \hyperlink{oprobitame}{here}. An interesting finding suggested that having children were apparently bad for marriage satisfaction. More specifically, each additional child decreased the probability of the wife rating their marriage as 5 (the highest satisfaction level) by 2.4\%, and increased the probabilities of rating their marriage as a 4, 3, 2 or 1 by 0.5\%, 1\%, 0.5\%, and 0.2\% respectively. Religiosity had the opposite effect: according to the model, each additional unit of `religiosity' reported increased the probability of marriages being rated a 5 by 5\%, and decreased the probability of rating their marriage as a 4, 3, 2 or 1 by 1\%, 2\%, 1\%, and 0.5\% respectively.\\
 
-This suggests that different independent variables have different marginal effects for the dependent variable being at different levels. Having additional children, or having the husband pick up a menial labor job, for example, acts as a normalizer, and could improve the satisfaction of a failing marriage, but prevents the marriage from achieving the highest satisfaction level. On the other hand, religiosity would seem to be a polarizer, making bad marriages worse, and great marriages better.
 
+This suggests that different independent variables can have different impacts on the reported ratings. There is a difference in sign: additional religiosity tends to increase marriage satisfaction, while additional children tends to decrease it. Furthermore, there is a difference in magnitude: a one-unit increase in religiosity, for example, seems to increase the probability of a high marriage satisfaction almost twice as much as an additional child lowers it. 
 
  
 
@@ -102,7 +103,7 @@ Overdispersion is where variance is greater than would be expected in a Poisson 
          Pearson goodness-of-fit  =    131234
          Prob > chi2(27322)       =    0.0000
 \end{verbatim}
-Which suggests the Poisson model to be inappropriate. We can furthermore check for overdispersion by using the \texttt{nbreg} command, \hyperlink{nbreg}{given here in the appendix}, which fits the data with a negative binomial distribution, and gives a likelihood0-ratio test, with the hypothesis being that the negative binomial distribution is equivalent to a poisson distribution, under $\alpha = 0$. Since the p-value is significant, $\alpha$ is significantly different from 0, so the poisson model is again inappropriate.
+Which suggests the Poisson model to be inappropriate. We can furthermore check for overdispersion by using the \texttt{nbreg} command, \hyperlink{nbreg}{given here in the appendix}, which fits the data with a negative binomial distribution, and gives a likelihood-ratio test, with the hypothesis being that the negative binomial distribution is equivalent to a poisson distribution, under $\alpha = 0$. Since the p-value is significant, $\alpha$ is significantly different from 0, the negative binomial distribution would be significantly difference from the poisson model, and so the latter again inappropriate.\footnote{\#modeltesting: I explain how the using the Poisson model implicitly assumes that the mean is equal to the variance, which may not be the case. I test the validity of the model using both the poigof command which computes a pearson goodness-of-fit chi-squared statistic, which was significant, and a likelihood ratio test, which was also significant. This suggests the poisson model to be inappropriate.}
 
 
 \end{enumerate}
@@ -110,79 +111,55 @@ Which suggests the Poisson model to be inappropriate. We can furthermore check f
 \newpage
 
 \section{Appendix}
-The accompanying code is given as a Jupyter Notebook (in Stata) as well as a .do file.
+
 
 \hypertarget{probitoutput}{\subsection*{Probit Model Output}}
 \begin{verbatim}
 Probit regression                               Number of obs     =      6,366
-                                                LR chi2(16)       =    1097.04
+                                                LR chi2(6)        =    1074.09
                                                 Prob > chi2       =     0.0000
-Log likelihood = -3454.0116                     Pseudo R2         =     0.1370
+Log likelihood = -3465.4864                     Pseudo R2         =     0.1342
+--------------------------------------------------------------------------------
+             A |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+---------------+----------------------------------------------------------------
+        rating |  -.4287915   .0182404   -23.51   0.000    -.4645421   -.3930409
+           age |  -.0371386   .0058164    -6.39   0.000    -.0485385   -.0257388
+         years |   .0669787   .0054895    12.20   0.000     .0562195    .0777379
+   religiosity |  -.2229334   .0203962   -10.93   0.000    -.2629093   -.1829575
+  1.managerial |   .2820679   .0527357     5.35   0.000     .1787077     .385428
+1.professional |   .3201245    .131654     2.43   0.015     .0620874    .5781616
+         _cons |   2.218905   .1535921    14.45   0.000      1.91787     2.51994
+--------------------------------------------------------------------------------
 
-------------------------------------------------------------------------------
-           A |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-      rating |    -.42506   .0183553   -23.16   0.000    -.4610357   -.3890843
-         age |  -.0359131   .0060622    -5.92   0.000    -.0477948   -.0240314
-       years |   .0642991    .006468     9.94   0.000     .0516221    .0769761
-    children |   .0086311   .0190523     0.45   0.651    -.0287107     .045973
- religiosity |  -.2235751   .0205278   -10.89   0.000    -.2638088   -.1833414
-   education |   -.001846   .0102593    -0.18   0.857    -.0219539    .0182618
-             |
-  occupation |
-          2  |   .2107086   .2498365     0.84   0.399    -.2789619    .7003792
-          3  |   .3992348   .2461618     1.62   0.105    -.0832334     .881703
-          4  |   .2630816   .2467651     1.07   0.286    -.2205691    .7467324
-          5  |   .6091108   .2495332     2.44   0.015     .1200347    1.098187
-          6  |   .6480159   .2792565     2.32   0.020     .1006832    1.195349
-             |
-  husbandocc |
-          2  |   .0943557   .1069709     0.88   0.378    -.1153034    .3040147
-          3  |   .1662867   .1171215     1.42   0.156    -.0632672    .3958406
-          4  |   .0766486   .1039138     0.74   0.461    -.1270187     .280316
-          5  |   .0915583   .1049421     0.87   0.383    -.1141246    .2972411
-          6  |   .1029664   .1173516     0.88   0.380    -.1270385    .3329713
-             |
-       _cons |   1.792191    .325053     5.51   0.000     1.155099    2.429283
-------------------------------------------------------------------------------
+Akaike's information criterion and Bayesian information criterion
+-----------------------------------------------------------------------------
+       Model |          N   ll(null)  ll(model)      df        AIC        BIC
+-------------+---------------------------------------------------------------
+           . |      6,366   -4002.53  -3465.486       7   6944.973   6992.284
+-----------------------------------------------------------------------------
+Note: BIC uses N = number of observations. See [R] BIC note.
 \end{verbatim}
 
-\newpage
+
 \hypertarget{probitame}{\subsection*{Probit Model AMEs}}
 \begin{verbatim}
 Average marginal effects                        Number of obs     =      6,366
 Model VCE    : OIM
 
 Expression   : Pr(A), predict()
-dy/dx w.r.t. : rating age years children religiosity education 2.occupation 
-3.occupation 4.occupation 5.occupation 6.occupation 2.husbandocc 3.husbandocc 
-4.husbandocc 5.husbandocc 6.husbandocc
+dy/dx w.r.t. : rating age years religiosity 1.managerial 1.professional
 
-------------------------------------------------------------------------------
-             |            Delta-method
-             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-      rating |  -.1302394   .0049252   -26.44   0.000    -.1398926   -.1205863
-         age |  -.0110039   .0018444    -5.97   0.000    -.0146188   -.0073889
-       years |   .0197014   .0019401    10.15   0.000     .0158989    .0235039
-    children |   .0026446   .0058375     0.45   0.651    -.0087967    .0140859
- religiosity |   -.068504   .0061325   -11.17   0.000    -.0805234   -.0564845
-   education |  -.0005656   .0031434    -0.18   0.857    -.0067266    .0055954
-             |
-  occupation |
-          2  |    .056928   .0634788     0.90   0.370    -.0674882    .1813441
-          3  |   .1136303   .0624022     1.82   0.069    -.0086757    .2359363
-          4  |    .072174     .06255     1.15   0.249    -.0504218    .1947697
-          5  |   .1818514   .0639968     2.84   0.004     .0564201    .3072828
-          6  |   .1949477   .0768603     2.54   0.011     .0443043     .345591
-             |
-  husbandocc |
-          2  |   .0283895   .0317009     0.90   0.370    -.0337431    .0905221
-          3  |   .0508015   .0352348     1.44   0.149    -.0182575    .1198605
-          4  |   .0229711   .0307046     0.75   0.454    -.0372087     .083151
-          5  |   .0275308   .0310522     0.89   0.375    -.0333304     .088392
-          6  |   .0310389   .0350368     0.89   0.376     -.037632    .0997098
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+               |            Delta-method
+               |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+---------------+----------------------------------------------------------------
+        rating |  -.1318603   .0048907   -26.96   0.000    -.1414459   -.1222747
+           age |  -.0114207   .0017739    -6.44   0.000    -.0148976   -.0079439
+         years |    .020597   .0016348    12.60   0.000     .0173929    .0238012
+   religiosity |  -.0685556   .0061151   -11.21   0.000     -.080541   -.0565703
+  1.managerial |   .0905521     .01749     5.18   0.000     .0562724    .1248318
+1.professional |   .1038312   .0444333     2.34   0.019     .0167435    .1909189
+--------------------------------------------------------------------------------
 \end{verbatim}
 
 
@@ -190,75 +167,52 @@ dy/dx w.r.t. : rating age years children religiosity education 2.occupation
 \hypertarget{logitoutput}{\subsection*{Logit Model Output}}
 \begin{verbatim}
 Logistic regression                             Number of obs     =      6,366
-                                                LR chi2(16)       =    1092.71
+                                                LR chi2(6)        =    1070.49
                                                 Prob > chi2       =     0.0000
-Log likelihood = -3456.1733                     Pseudo R2         =     0.1365
+Log likelihood = -3467.2854                     Pseudo R2         =     0.1337
 
-------------------------------------------------------------------------------
-           A |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-      rating |  -.7102283   .0314818   -22.56   0.000    -.7719314   -.6485252
-         age |  -.0612789   .0103231    -5.94   0.000    -.0815117    -.041046
-       years |    .107976   .0109772     9.84   0.000     .0864611    .1294909
-    children |   .0156448   .0320509     0.49   0.625    -.0471737    .0784634
- religiosity |  -.3753863   .0348686   -10.77   0.000    -.4437274   -.3070451
-   education |  -.0017253    .017398    -0.10   0.921    -.0358247     .032374
-             |
-  occupation |
-          2  |   .3902386   .4475507     0.87   0.383    -.4869446    1.267422
-          3  |   .7026792   .4414598     1.59   0.111    -.1625661    1.567925
-          4  |   .4713969   .4425232     1.07   0.287    -.3959326    1.338726
-          5  |   1.054197   .4466347     2.36   0.018     .1788096    1.929585
-          6  |   1.108015   .4942125     2.24   0.025     .1393766    2.076654
-             |
-  husbandocc |
-          2  |    .170447   .1860868     0.92   0.360    -.1942766    .5351705
-          3  |   .2841727   .2021606     1.41   0.160    -.1120548    .6804002
-          4  |   .1428406   .1810041     0.79   0.430     -.211921    .4976022
-          5  |   .1723288   .1826377     0.94   0.345    -.1856345    .5302921
-          6  |   .1827633    .203652     0.90   0.369    -.2163872    .5819138
-             |
-       _cons |   2.970755   .5722101     5.19   0.000     1.849244    4.092266
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+             A |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+---------------+----------------------------------------------------------------
+        rating |  -.7165643    .031318   -22.88   0.000    -.7779464   -.6551822
+           age |  -.0632411   .0099064    -6.38   0.000    -.0826572   -.0438249
+         years |   .1126725   .0093673    12.03   0.000     .0943129    .1310321
+   religiosity |  -.3749785    .034622   -10.83   0.000    -.4428364   -.3071205
+  1.managerial |   .4730845   .0876404     5.40   0.000     .3013124    .6448566
+1.professional |   .5271217   .2217386     2.38   0.017     .0925221    .9617213
+         _cons |   3.751573   .2620388    14.32   0.000     3.237987     4.26516
+--------------------------------------------------------------------------------
 
+Akaike's information criterion and Bayesian information criterion
+
+-----------------------------------------------------------------------------
+       Model |          N   ll(null)  ll(model)      df        AIC        BIC
+-------------+---------------------------------------------------------------
+           . |      6,366   -4002.53  -3467.285       7   6948.571   6995.882
+-----------------------------------------------------------------------------
+Note: BIC uses N = number of observations. See [R] BIC note.
 \end{verbatim}
 
-\newpage
+
 \hypertarget{logitame}{\subsection*{Logit Model AMEs}}
 \begin{verbatim}
 Average marginal effects                        Number of obs     =      6,366
 Model VCE    : OIM
 
 Expression   : Pr(A), predict()
-dy/dx w.r.t. : rating age years children religiosity education 2.occupation 
-3.occupation 4.occupation 5.occupation 6.occupation 2.husbandocc 3.husbandocc 
-4.husbandocc 5.husbandocc 6.husbandocc
+dy/dx w.r.t. : rating age years religiosity 1.managerial 1.professional
 
-------------------------------------------------------------------------------
-             |            Delta-method
-             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-      rating |  -.1290391   .0048629   -26.54   0.000    -.1385703   -.1195079
-         age |  -.0111336   .0018588    -5.99   0.000    -.0147768   -.0074904
-       years |   .0196178    .001944    10.09   0.000     .0158077     .023428
-    children |   .0028425    .005823     0.49   0.625    -.0085704    .0142553
- religiosity |  -.0682027   .0061495   -11.09   0.000    -.0802556   -.0561499
-   education |  -.0003135    .003161    -0.10   0.921    -.0065089    .0058819
-             |
-  occupation |
-          2  |   .0612388    .065116     0.94   0.347    -.0663862    .1888639
-          3  |   .1168366   .0640436     1.82   0.068    -.0086865    .2423598
-          4  |   .0751529   .0642053     1.17   0.242    -.0506871     .200993
-          5  |    .185137   .0655919     2.82   0.005     .0565792    .3136947
-          6  |   .1960177   .0785268     2.50   0.013     .0421081    .3499274
-             |
-  husbandocc |
-          2  |   .0302712   .0324327     0.93   0.351    -.0332957    .0938381
-          3  |   .0513025   .0358087     1.43   0.152    -.0188812    .1214862
-          4  |   .0252634   .0314419     0.80   0.422    -.0363616    .0868885
-          5  |    .030614   .0317795     0.96   0.335    -.0316727    .0929006
-          6  |   .0325179   .0358017     0.91   0.364    -.0376522     .102688
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+               |            Delta-method
+               |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+---------------+----------------------------------------------------------------
+        rating |  -.1306759   .0048316   -27.05   0.000    -.1401456   -.1212062
+           age |  -.0115329    .001788    -6.45   0.000    -.0150373   -.0080286
+         years |   .0205475    .001644    12.50   0.000     .0173254    .0237696
+   religiosity |  -.0683828   .0061268   -11.16   0.000    -.0803911   -.0563744
+  1.managerial |    .090605   .0174113     5.20   0.000     .0564795    .1247306
+1.professional |   .1020851    .044947     2.27   0.023     .0139906    .1901796
+--------------------------------------------------------------------------------
 \end{verbatim}
 
 \newpage
@@ -345,6 +299,93 @@ religiosity   |
 Note: dy/dx for factor levels is the discrete change from the base level.
 \end{verbatim}
 
+
+
+\newpage
+\hypertarget{ologit}{\subsection*{Ordered Logit Model}}
+\begin{verbatim}
+Ordered logistic regression                     Number of obs     =      6,366
+                                                LR chi2(15)       =     224.52
+                                                Prob > chi2       =     0.0000
+Log likelihood = -7814.2247                     Pseudo R2         =     0.0142
+
+------------------------------------------------------------------------------
+      rating |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         age |  -.0052979   .0080033    -0.66   0.508    -.0209841    .0103883
+       years |  -.0128822    .008628    -1.49   0.135    -.0297928    .0040283
+    children |  -.1035099   .0262379    -3.95   0.000    -.1549352   -.0520846
+ religiosity |   .2213074   .0272022     8.14   0.000     .1679921    .2746228
+   education |   .0242361   .0138223     1.75   0.080    -.0028551    .0513273
+             |
+  occupation |
+          2  |  -.1672703   .3016406    -0.55   0.579    -.7584751    .4239344
+          3  |  -.3138057   .2962706    -1.06   0.290    -.8944855     .266874
+          4  |  -.0808011   .2971164    -0.27   0.786    -.6631386    .5015363
+          5  |  -.2308718   .3018664    -0.76   0.444    -.8225192    .3607755
+          6  |  -.2984046   .3502441    -0.85   0.394    -.9848704    .3880612
+             |
+  husbandocc |
+          2  |  -.2698151   .1363468    -1.98   0.048    -.5370499   -.0025803
+          3  |  -.2649377   .1510062    -1.75   0.079    -.5609044     .031029
+          4  |  -.1447067   .1319604    -1.10   0.273    -.4033443    .1139309
+          5  |  -.0883686   .1335461    -0.66   0.508    -.3501141    .1733769
+          6  |   .0656399   .1515847     0.43   0.665    -.2314607    .3627404
+-------------+----------------------------------------------------------------
+       /cut1 |  -4.095151   .4046165                     -4.888185   -3.302117
+       /cut2 |  -2.521576   .3946938                     -3.295162    -1.74799
+       /cut3 |  -1.145174   .3926742                     -1.914802    -.375547
+       /cut4 |   .4424099   .3925007                     -.3268773    1.211697
+------------------------------------------------------------------------------
+\end{verbatim}
+
+\newpage
+\hypertarget{ologitame}{\subsection*{Ordered Logit Model AMEs}}
+\begin{verbatim}
+Average marginal effects                        Number of obs     =      6,366
+Model VCE    : OIM
+
+dy/dx w.r.t. : children religiosity 2.husbandocc
+1._predict   : Pr(rating==1), predict(pr outcome(1))
+2._predict   : Pr(rating==2), predict(pr outcome(2))
+3._predict   : Pr(rating==3), predict(pr outcome(3))
+4._predict   : Pr(rating==4), predict(pr outcome(4))
+5._predict   : Pr(rating==5), predict(pr outcome(5))
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+children      |
+     _predict |
+           1  |   .0015858   .0004318     3.67   0.000     .0007394    .0024322
+           2  |   .0051409    .001327     3.87   0.000       .00254    .0077418
+           3  |   .0110726   .0028081     3.94   0.000     .0055689    .0165764
+           4  |   .0066989   .0017215     3.89   0.000     .0033249    .0100729
+           5  |  -.0244983   .0061891    -3.96   0.000    -.0366287   -.0123678
+--------------+----------------------------------------------------------------
+religiosity   |
+     _predict |
+           1  |  -.0033905   .0005356    -6.33   0.000    -.0044402   -.0023408
+           2  |  -.0109914   .0014541    -7.56   0.000    -.0138414   -.0081415
+           3  |  -.0236737   .0029234    -8.10   0.000    -.0294035   -.0179438
+           4  |  -.0143224    .001845    -7.76   0.000    -.0179385   -.0107064
+           5  |   .0523781   .0063359     8.27   0.000     .0399599    .0647962
+--------------+----------------------------------------------------------------
+1.husbandocc  |  (base outcome)
+--------------+----------------------------------------------------------------
+2.husbandocc  |
+     _predict |
+           1  |   .0040976   .0019365     2.12   0.034     .0003022     .007893
+           2  |   .0133108   .0062704     2.12   0.034      .001021    .0256006
+           3  |   .0288335   .0141147     2.04   0.041     .0011691    .0564979
+           4  |   .0177781    .010678     1.66   0.096    -.0031505    .0387066
+           5  |    -.06402   .0327466    -1.96   0.051    -.1282021    .0001622
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level
+\end{verbatim}
+
+
 \newpage
 \hypertarget{poisson}{\subsection*{Poisson Model}}
 \begin{verbatim}
@@ -367,7 +408,6 @@ Log likelihood = -12362.865                     Pseudo R2         =     0.0791
 ------------------------------------------------------------------------------
 \end{verbatim}
 
-\newpage
 \hypertarget{margins}{\subsection*{Poisson Model AMEs}}
 \begin{verbatim}
 Average marginal effects                        Number of obs     =     27,308
